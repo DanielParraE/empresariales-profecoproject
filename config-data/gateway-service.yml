@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+   gateway:
+    discovery:
+      locator:
+        enabled: true
+    routes:
+      - id: consumer-service
+        uri: lb://consumer-service
+        predicates:
+          - Path=/consumers/**, /complains/**
+      - id: market-service
+        uri: lb://market-service
+        predicates:
+          - Path=/markets/**
+      - id: profeco-service
+        uri: lb://profeco-service
+        predicates:
+          - Path=/marketspr/**
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/
