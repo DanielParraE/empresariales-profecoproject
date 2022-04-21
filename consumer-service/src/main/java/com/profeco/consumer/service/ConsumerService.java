@@ -9,5 +9,5 @@ public interface ConsumerService {
     public Consumer getConsumer(Long id);
     public Consumer createConsumer(Consumer consumer);
     public Consumer updateConsumer(Consumer consumer);
-    public boolean deleteConsumer(Long id);
+    public Consumer deleteConsumer(Long id);
 }

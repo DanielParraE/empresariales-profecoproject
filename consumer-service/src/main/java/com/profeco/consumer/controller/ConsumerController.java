@@ -53,8 +53,8 @@ public class ConsumerController {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<String> deleteConsumer(@PathVariable(value = "id") Long id) {
-        boolean deleted = consumerService.deleteConsumer(id);
-        if (!deleted) {
+        Consumer consumerDeleted = consumerService.deleteConsumer(id);
+        if (consumerDeleted == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok("[ DELETED ]");

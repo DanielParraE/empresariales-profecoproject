@@ -5,11 +5,12 @@ import com.profeco.consumer.repositories.ConsumerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ConsumerServiceImplementation implements ConsumerService {
+public class DomainConsumerService implements ConsumerService {
 
     private final ConsumerRepository consumerRepository;
 
@@ -25,6 +26,11 @@ public class ConsumerServiceImplementation implements ConsumerService {
 
     @Override
     public Consumer createConsumer(Consumer consumer) {
+        Consumer consumerDB = consumerRepository.findByRfc(consumer.getRfc());
+        if (consumerDB != null) return consumerDB;
+
+        consumer.setStatus("CREATED");
+        consumer.setCreatedAt(new Date());
         return consumerRepository.save(consumer);
     }
 
@@ -36,18 +42,18 @@ public class ConsumerServiceImplementation implements ConsumerService {
         }
         consumerDB.setFullName(consumer.getFullName());
         consumerDB.setPhoneNumber(consumer.getPhoneNumber());
-        consumerDB.setRfc(consumer.getRfc());
+        //consumerDB.setRfc(consumer.getRfc());
         consumerDB.setEmail(consumer.getEmail());
         return consumerRepository.save(consumerDB);
     }
 
     @Override
-    public boolean deleteConsumer(Long id) {
+    public Consumer deleteConsumer(Long id) {
         Consumer consumerDB = getConsumer(id);
-        if (consumerDB == null) {
-            return false;
-        }
-        consumerRepository.delete(consumerDB);
-        return true;
+        if (consumerDB == null) return null;
+
+        //consumerRepository.delete(consumerDB);
+        consumerDB.setStatus("DELETED");
+        return consumerRepository.save(consumerDB);
     }
 }

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ConsumerRepository extends JpaRepository<Consumer, Long> {
     public List<Consumer> findAll();
+    public Consumer findByRfc(String rfc);
 }
