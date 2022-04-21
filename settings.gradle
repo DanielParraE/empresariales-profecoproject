@@ -1,0 +1,7 @@
+include 'consumer-service'
+include 'market-service'
+include 'profeco-service'
+include 'config-service'
+include 'registry-service'
+include 'gateway-service'
+rootProject.name = 'profeco'
