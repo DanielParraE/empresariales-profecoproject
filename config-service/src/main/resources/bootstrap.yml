@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/DanielParraE/proyecto-profeco-itson.git
+          uri: https://github.com/DanielParraE/empresariales-profecoproject.git
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
