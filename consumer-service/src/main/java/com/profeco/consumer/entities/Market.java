@@ -25,14 +25,15 @@ public class Market {
     private String rfc;
 
     @Valid
-    @JsonManagedReference
+    @JsonManagedReference(value = "market-address")
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
     private List<Address> addressList;
 
+    @JsonManagedReference(value = "market-reviews")
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
     private List<MarketReview> reviews;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "market-marketproduct")
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
     private List<MarketProduct> marketProductList;
 }

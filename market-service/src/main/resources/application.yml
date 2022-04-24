@@ -47,6 +47,9 @@ spring:
         use_sql_comments: false
         format_sql: false
 
+  rabbitmq:
+    addresses: localhost:5672
+
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"

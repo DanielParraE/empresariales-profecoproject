@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
+import javax.validation.metadata.ValidateUnwrappedValue;
 import java.util.Date;
 import java.util.List;
 
@@ -18,25 +19,25 @@ public class MarketProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonBackReference
+    @JsonBackReference(value = "market-marketproduct")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "market_id", nullable = false)
     private Market market;
 
-    @JsonBackReference
+    @JsonBackReference(value = "product-marketproduct")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "market-product-productreview")
     @OneToMany(mappedBy = "marketProduct", cascade = CascadeType.ALL)
     private List<ProductReview> reviews;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "market-product-wishlist-product")
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<WishlistProduct> wishlistProducts;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "market-product-inconsistency")
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Inconsistency> inconsistencies;
 

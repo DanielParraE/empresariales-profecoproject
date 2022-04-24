@@ -25,7 +25,7 @@ public class Address {
     @NotEmpty(message = "street must not be empty")
     private String street;
 
-    @JsonBackReference
+    @JsonBackReference(value = "market-address")
     @ManyToOne(fetch = FetchType.LAZY)
     private Market market;
 }

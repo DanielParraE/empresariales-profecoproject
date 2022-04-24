@@ -28,7 +28,7 @@ public class Review {
     @DecimalMax(value = "5.0", message = "rating must not be greater than 5")
     private float rating;
 
-    @JsonBackReference
+    @JsonBackReference(value = "consumer-review")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "consumer_id", nullable = false)
     private Consumer consumer;

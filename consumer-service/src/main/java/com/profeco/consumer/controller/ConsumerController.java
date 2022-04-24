@@ -4,9 +4,13 @@ import com.profeco.consumer.entities.Consumer;
 import com.profeco.consumer.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,18 +31,20 @@ public class ConsumerController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Consumer> consumerById(@PathVariable(value = "id", required = true) Long id) {
-        List<Consumer> consumers = consumerService.listAllConsumer();
-        if (consumers.isEmpty()) {
-            return ResponseEntity.noContent().build();
+        Consumer consumerDB = consumerService.getConsumer(id);
+        if (consumerDB == null) {
+            return ResponseEntity.notFound().build();
         }
-        Consumer cs = consumerService.getConsumer(id);
-        return ResponseEntity.ok(cs);
+        return ResponseEntity.ok(consumerDB);
     }
 
     @PostMapping
-    public ResponseEntity<Consumer> createConsumer(@RequestBody Consumer consumer) {
-        Consumer productCreate = consumerService.createConsumer(consumer);
-        return ResponseEntity.status(HttpStatus.CREATED).body(productCreate);
+    public ResponseEntity<Consumer> createConsumer(@Valid @RequestBody Consumer consumer, BindingResult result) {
+        if (result.hasErrors())
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ErrorMessage.formatMessage(result));
+
+        Consumer consumerCreated = consumerService.createConsumer(consumer);
+        return ResponseEntity.status(HttpStatus.CREATED).body(consumerCreated);
     }
 
     @PutMapping(value = "/{id}")

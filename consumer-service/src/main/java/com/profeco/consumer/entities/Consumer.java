@@ -1,6 +1,8 @@
 package com.profeco.consumer.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,17 +44,17 @@ public class Consumer {
     private String email;
 
     @Valid
-    @JsonManagedReference
+    @JsonManagedReference(value = "consumer-review")
     @OneToMany(mappedBy = "consumer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviewList;
 
     @Valid
-    @JsonManagedReference
+    @JsonManagedReference(value = "consumer-wishlist")
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Wishlist> wishlists;
 
     @Valid
-    @JsonManagedReference
+    @JsonManagedReference(value = "consumer-author")
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Inconsistency> inconsistencies;
 

@@ -1,13 +1,18 @@
 package com.profeco.market.controller;
 
+import com.profeco.market.dto.MarketDTO;
 import com.profeco.market.entities.Market;
+import com.profeco.market.queues.MarketQueueConfig;
 import com.profeco.market.service.MarketService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/markets")
@@ -15,6 +20,9 @@ public class MarketController {
 
     @Autowired
     private MarketService marketService;
+
+    @Autowired
+    private RabbitTemplate template;
 
     @GetMapping
     public ResponseEntity<List<Market>> listMarkets() {
@@ -37,8 +45,21 @@ public class MarketController {
 
     @PostMapping
     public ResponseEntity<Market> createMarket(@RequestBody Market market) {
-        Market marketCreate = marketService.createMarket(market);
-        return ResponseEntity.status(HttpStatus.CREATED).body(marketCreate);
+        //Market marketCreated = marketService.createMarket(market);
+        Market marketCreated = market;
+
+        MarketDTO marketDTO = MarketDTO.builder()
+                .UUID(UUID.randomUUID().toString())
+                .name(marketCreated.getName())
+                .rfc(marketCreated.getRfc())
+                .messageDate(new Date())
+                .build();
+
+        // publish market created event
+        template.convertAndSend(MarketQueueConfig.EXCHANGE,
+                MarketQueueConfig.ROUTING_KEY, marketDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(marketCreated);
     }
 
     @PutMapping(value = "/{id}")

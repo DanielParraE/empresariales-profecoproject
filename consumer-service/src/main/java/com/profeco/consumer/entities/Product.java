@@ -31,7 +31,7 @@ public class Product {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Category category;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "product-marketproduct")
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<MarketProduct> marketProductList;
 
