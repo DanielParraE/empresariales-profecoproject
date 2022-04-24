@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'itson.distribuidos.profecoproject'
+group = 'com.profeco'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
