@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/product.css}"/>
+    <title>Market list</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main class="main">
+    <section class="articles">
+        <article th:each="product: ${products}">
+                <div class="card">
+                    <div class="info">
+                        <div class="shoeName">
+                            <img th:src="@{${'http://localhost:8091/files/' + product.image }}" alt="" class="product-image">
+                            <h1 class="big" th:text="${product.name}" />
+                        </div>
+                        <div class="description">
+                            <h3 class="title">Seller Info</h3>
+                            <p class="text" th:text="${product.description}" />
+                        </div>
+                    </div>
+                </div>
+        </article>
+    </section>
+</main>
+</body>
+
+</html>

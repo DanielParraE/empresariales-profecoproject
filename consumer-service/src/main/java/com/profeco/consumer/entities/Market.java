@@ -23,6 +23,7 @@ public class Market {
 
     private String name;
     private String rfc;
+    private String image;
 
     @Valid
     @JsonManagedReference(value = "market-address")

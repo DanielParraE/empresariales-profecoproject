@@ -58,6 +58,8 @@ public class Consumer {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Inconsistency> inconsistencies;
 
+    private String image;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
     private Date createdAt;

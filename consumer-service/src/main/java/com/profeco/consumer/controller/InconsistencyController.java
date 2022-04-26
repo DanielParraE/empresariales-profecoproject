@@ -1,6 +1,5 @@
 package com.profeco.consumer.controller;
 
-import com.profeco.consumer.client.MarketClient;
 import com.profeco.consumer.service.InconsistencyService;
 import com.profeco.consumer.entities.Inconsistency;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,6 @@ public class InconsistencyController {
 
     @Autowired
     private InconsistencyService inconsistencyService;
-
-    @Autowired
-    private MarketClient marketClient;
 
     @GetMapping
     public ResponseEntity<List<Inconsistency>> listComplain() {

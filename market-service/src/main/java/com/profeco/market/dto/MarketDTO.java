@@ -14,5 +14,6 @@ public class MarketDTO implements Serializable {
     private String UUID;
     private String name;
     private String rfc;
+    private String image;
     private Date messageDate;
 }

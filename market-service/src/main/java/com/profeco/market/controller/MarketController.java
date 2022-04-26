@@ -45,14 +45,14 @@ public class MarketController {
 
     @PostMapping
     public ResponseEntity<Market> createMarket(@RequestBody Market market) {
-        //Market marketCreated = marketService.createMarket(market);
-        Market marketCreated = market;
+        Market marketCreated = marketService.createMarket(market);
 
         MarketDTO marketDTO = MarketDTO.builder()
                 .UUID(UUID.randomUUID().toString())
                 .name(marketCreated.getName())
                 .rfc(marketCreated.getRfc())
                 .messageDate(new Date())
+                .image(marketCreated.getImage())
                 .build();
 
         // publish market created event

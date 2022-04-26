@@ -1,5 +1,6 @@
 package com.profeco.consumer.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
@@ -31,9 +31,12 @@ public class Product {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Category category;
 
-    @JsonManagedReference(value = "product-marketproduct")
+    @JsonIgnore
+    //@JsonManagedReference(value = "product-marketproduct")
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<MarketProduct> marketProductList;
+
+    private String image;
 
     private String status;
 }

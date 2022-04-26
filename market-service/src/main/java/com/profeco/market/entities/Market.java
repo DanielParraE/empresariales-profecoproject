@@ -18,4 +18,6 @@ public class Market {
     private String rfc;
     @Column(name = "web_page")
     private String webPage;
+
+    private String image;
 }

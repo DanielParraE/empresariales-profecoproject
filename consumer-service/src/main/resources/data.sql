@@ -5,8 +5,8 @@ INSERT INTO consumers (id, full_name, rfc, phone_number, email) VALUES (2, 'Mari
 INSERT INTO consumers (id, full_name, rfc, phone_number, email) VALUES (3, 'Beni', 'BELM8305281A9', '6777419638', 'beni@gmail.com');
 
 delete from markets;
-insert into markets(id, name, rfc) values (1, 'Walmart',  'WALM420112PP1');
-insert into markets(id, name, rfc) values (2, 'Soriana',  'SORI420112PP1');
+insert into markets(id, name, rfc, image) values (1, 'Walmart',  'WALM420112PP1', 'abc-market.png');
+insert into markets(id, name, rfc, image) values (2, 'Soriana',  'SORI420112PP1', 'abc-market.png');
 
 delete from addresses;
 insert into addresses(id, post_code, city, street, market_id) values(1, '85900', 'Obregón', 'calle 200', 1);
@@ -18,9 +18,9 @@ delete from categories;
 insert into categories(id, name, description) values (1, 'bebidas', 'bebidas azucaradas');
 
 delete from products;
-insert into products(id, name, description, category_id) values (1, 'pepsi', 'refresco copia de coca cola', 1);
-insert into products(id, name, description, category_id) values (2, 'coca cola', 'refresco original', 1);
-insert into products(id, name, description, category_id) values (3, 'big cola', 'refresco patito', 1);
+insert into products(id, name, description, category_id, image) values (1, 'pepsi', 'refresco copia de coca cola', 1, 'abc-product.png');
+insert into products(id, name, description, category_id, image) values (2, 'coca cola', 'refresco original', 1, 'abc-product.png');
+insert into products(id, name, description, category_id, image) values (3, 'big cola', 'refresco patito', 1, 'abc-product.png');
 
 delete from rel_marketsproducts;
 insert into rel_marketsproducts(marketproduct_id, market_id, product_id, price) values (1, 1, 1, 50.5);

@@ -23,6 +23,7 @@ public class ConsumerController {
     @GetMapping
     public ResponseEntity<List<Consumer>> listConsumer() {
         List<Consumer> consumers = consumerService.listAllConsumer();
+
         if (consumers.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
