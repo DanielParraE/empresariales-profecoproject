@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af0b0d7d-6379-4eed-a33b-737c0ad8e317" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../consumer-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/ServiceConsumerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/controller/ConsumerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/controller/ErrorMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/controller/FileUploadController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/controller/InconsistencyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/dto/FileUploadResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/dto/MarketDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/dto/ProductList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Consumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Inconsistency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Market.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/MarketProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/MarketReview.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/ProductReview.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Review.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/Wishlist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/entities/WishlistProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/events/HttpDownloadUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/events/MarketCreatedListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/models/Market.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/queues/MarketQueueConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/repositories/ConsumerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/repositories/InconsistencyRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/repositories/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/ConsumerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/DomainConsumerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/DomainInconsistencyService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/DomainProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/FileSystemStorageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/InconsistencyService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/StorageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/storage/StorageException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/storage/StorageFileNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/java/com/profeco/consumer/service/storage/StorageProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/css/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/css/product-details.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/img/avatar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/img/bg.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/img/wave.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/static/js/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/templates/markets.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/templates/product-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/main/resources/templates/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/test/java/com/profeco/consumer/consumer/ConsumerControllerMockTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/test/java/com/profeco/consumer/consumer/ConsumerRepositoryMockTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/test/java/com/profeco/consumer/consumer/ConsumerServiceMockTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/test/java/com/profeco/consumer/consumer/product/ProductRepositoryMockTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/src/test/java/com/profeco/consumer/consumer/product/ProductServiceMockTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/upload-dir/abc-market.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-service/upload-dir/abc-product.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/src/main/java/itson/distribuidos/profecoproject/gateway/GatewayServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-service/src/test/java/itson/distribuidos/profecoproject/gateway/GatewayServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/ServiceMarketApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/controller/FileUploadController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/controller/MarketController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/dto/FileUploadResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/dto/MarketDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/entities/Market.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/queues/MarketQueueConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/repositories/MarketRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/service/DomainMarketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/service/FileSystemStorageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/service/MarketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/service/StorageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/service/storage/StorageException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/service/storage/StorageFileNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/profeco/market/service/storage/StorageProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/profeco/market/ServiceMarketApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload-dir/abc-market.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28E0XLAVJP0qj2WTtzSln85lRDg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ldap" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\paulb\Documents\github\empresariales-profecoproject\market-service\src\main\java\com\profeco\market\service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.profeco.market.dto" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ServiceMarketApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.profeco.market.ServiceMarketApplication" />
+      <module name="market-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.profeco.market.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ServiceMarketApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af0b0d7d-6379-4eed-a33b-737c0ad8e317" name="Changes" comment="" />
+      <created>1650766476245</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650766476245</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
