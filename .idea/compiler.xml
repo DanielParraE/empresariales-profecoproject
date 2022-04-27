@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.22/9c08ea24c6eb714e2d6170e8122c069a0ba9aacf/lombok-1.18.22.jar" />
+        </processorPath>
+        <module name="profeco.profeco-service.main" />
+        <module name="profeco.trueconsumer-service.main" />
+        <module name="profeco.truemarket-service.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+        </processorPath>
+        <module name="profeco.trueconsumer-web.main" />
+        <module name="profeco.profeco-control-web.main" />
+        <module name="profeco.truemarket-web.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="onlinestore.ldap" target="11" />
+      <module name="onlinestore.ldap.main" target="11" />
+      <module name="onlinestore.ldap.test" target="11" />
+      <module name="onlinestore.profeco-control-web" target="11" />
+      <module name="onlinestore.profeco-control-web.main" target="11" />
+      <module name="onlinestore.profeco-control-web.test" target="11" />
+      <module name="onlinestore.profeco-service" target="11" />
+      <module name="onlinestore.profeco-service.main" target="11" />
+      <module name="onlinestore.profeco-service.test" target="11" />
+      <module name="onlinestore.trueconsumer-service" target="11" />
+      <module name="onlinestore.trueconsumer-service.main" target="11" />
+      <module name="onlinestore.trueconsumer-service.test" target="11" />
+      <module name="onlinestore.trueconsumer-web" target="11" />
+      <module name="onlinestore.trueconsumer-web.main" target="11" />
+      <module name="onlinestore.trueconsumer-web.test" target="11" />
+      <module name="onlinestore.truemarket-service" target="11" />
+      <module name="onlinestore.truemarket-service.main" target="11" />
+      <module name="onlinestore.truemarket-service.test" target="11" />
+      <module name="onlinestore.truemarket-web" target="11" />
+      <module name="onlinestore.truemarket-web.main" target="11" />
+      <module name="onlinestore.truemarket-web.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

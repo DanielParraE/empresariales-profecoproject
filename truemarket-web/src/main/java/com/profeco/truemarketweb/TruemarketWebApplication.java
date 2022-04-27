@@ -1,13 +1,13 @@
-package com.profeco;
+package com.profeco.truemarketweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceProfecoApplication {
+public class TruemarketWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceProfecoApplication.class, args);
+		SpringApplication.run(TruemarketWebApplication.class, args);
 	}
 
 }
