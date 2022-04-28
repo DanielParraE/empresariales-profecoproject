@@ -10,3 +10,5 @@ spring:
       port: 8389
       ldif: classpath:ldap-data.ldif
       base-dn: dc=profeco,dc=org
+      validation:
+        enabled: false

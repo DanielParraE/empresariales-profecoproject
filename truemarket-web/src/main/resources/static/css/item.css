@@ -45,7 +45,7 @@ article {
   float: left;
   width: 10%;
   padding: 10px;
-  background: #60b4df;
+  background: #016400;
   color: white;
   font-size: 17px;
   border: 1px solid grey;
@@ -99,7 +99,7 @@ article {
 
 .buy{
     padding: .7rem 1rem;
-    background: #60b4df;
+    background: #016400;
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;

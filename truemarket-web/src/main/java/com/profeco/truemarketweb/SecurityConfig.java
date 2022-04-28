@@ -12,7 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.ldapAuthentication()
-                .userDnPatterns("uid={0},ou=consumers")
+                .userDnPatterns("uid={0},ou=markets")
                 .groupSearchBase("ou=groups")
                 .contextSource()
                 .url("ldap://localhost:8389/dc=profeco,dc=org")
@@ -25,8 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/js/**", "/css/**", "/img/**", "/", "/markets", "/products").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/js/**", "/css/**", "/img/**").permitAll()
+                //.anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .formLogin()
         //.loginPage("/login")

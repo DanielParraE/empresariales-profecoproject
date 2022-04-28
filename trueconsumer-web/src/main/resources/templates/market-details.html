@@ -52,6 +52,18 @@
                         <h3 class="description-title">Product Info</h3>
                         <p class="text" th:text="${product.description}" />
                     </div>
+                    <div th:each="marketProduct: ${product.marketProductList}">
+                        <div class="buy-price" th:if="${marketProduct.market.id == 1}">
+                            <h3 class="market" >Price</h3>
+                            <div class="price">
+                                <i class="fas fa-dollar-sign"></i>
+                                <h1 th:text="${marketProduct.price}"/>
+                            </div>
+                            <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Add to wishlist</a>
+                            <a href="#" class="report"><i class="fa fa-flag"></i>Report product</a>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>

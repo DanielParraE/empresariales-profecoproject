@@ -21,11 +21,8 @@ a{
 }
 
 header{
-    position: sticky;
-    top: 0;
-    background-color: #60b4df;
+    background-color: #016400;
     width: 100%;
-    z-index: 1000;
     margin-bottom: 20px;
 }
 
@@ -47,7 +44,7 @@ article {
 }
 
 .container{
-    max-width: 65rem;
+    max-width: 90%;
     padding: 0 2rem;
     margin: 0 auto;
     display: flex;
@@ -103,7 +100,7 @@ article {
 
 .btn.solid, .btn.transparent:hover{
     background-color: #fff;
-    color: #69bde7;
+    color: #016400;
 }
 
 .btn.transparent, .btn.solid:hover{
