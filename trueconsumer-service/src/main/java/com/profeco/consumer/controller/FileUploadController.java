@@ -2,7 +2,7 @@ package com.profeco.consumer.controller;
 
 import com.profeco.consumer.dto.FileUploadResponse;
 import com.profeco.consumer.service.storage.StorageFileNotFoundException;
-import com.profeco.consumer.service.storage.StorageService;
+import com.profeco.consumer.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

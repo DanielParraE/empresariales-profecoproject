@@ -1,4 +1,4 @@
-package com.profeco.consumer.consumer.product;
+package com.profeco.consumer.product;
 
 import com.profeco.consumer.entities.Category;
 import com.profeco.consumer.entities.Market;

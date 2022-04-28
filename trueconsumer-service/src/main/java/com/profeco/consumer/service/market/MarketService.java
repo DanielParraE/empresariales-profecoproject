@@ -5,7 +5,7 @@ import com.profeco.consumer.entities.Market;
 import java.util.List;
 
 public interface MarketService {
-    List<Market> findAll();
-    List<Market> findByName(String name);
-
+    public List<Market> findAll();
+    public List<Market> findByName(String name);
+    public Market findById(Long id);
 }

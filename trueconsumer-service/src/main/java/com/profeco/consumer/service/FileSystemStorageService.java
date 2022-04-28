@@ -1,4 +1,4 @@
-package com.profeco.consumer.service.storage;
+package com.profeco.consumer.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +9,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.stream.Stream;
 
+import com.profeco.consumer.service.StorageService;
+import com.profeco.consumer.service.storage.StorageException;
+import com.profeco.consumer.service.storage.StorageFileNotFoundException;
+import com.profeco.consumer.service.storage.StorageProperties;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

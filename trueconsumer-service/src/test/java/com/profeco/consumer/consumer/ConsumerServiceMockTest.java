@@ -1,5 +1,6 @@
 package com.profeco.consumer.consumer;
 
+import com.profeco.consumer.SecurityConfig;
 import com.profeco.consumer.entities.Consumer;
 import com.profeco.consumer.repositories.ConsumerRepository;
 import com.profeco.consumer.service.consumer.ConsumerService;
@@ -11,10 +12,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Optional;
 
 @SpringBootTest
+@ContextConfiguration(classes = SecurityConfig.class)
 public class ConsumerServiceMockTest {
     @Mock
     private ConsumerRepository consumerRepository;

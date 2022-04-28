@@ -3,6 +3,7 @@ package com.profeco.consumer.dto;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -10,9 +11,10 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 public class MarketDTO {
-    private String UUID;
+    private Long id;
     private String name;
     private String rfc;
     private String image;
-    private Date messageDate;
+    private String webPage;
+    private List<MarketProductDTO> marketProductList;
 }

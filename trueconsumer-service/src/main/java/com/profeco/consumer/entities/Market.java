@@ -1,5 +1,7 @@
 package com.profeco.consumer.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,16 +27,21 @@ public class Market {
     private String rfc;
     private String image;
 
+    @Column(name = "web_page")
+    private String webPage;
+
     @Valid
     @JsonManagedReference(value = "market-address")
-    @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "branchOffice", cascade = CascadeType.ALL)
     private List<Address> addressList;
 
-    @JsonManagedReference(value = "market-reviews")
-    @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
+    //@JsonIgnore
+    //@JsonManagedReference(value = "market-reviews")
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
     private List<MarketReview> reviews;
 
-    @JsonManagedReference(value = "market-marketproduct")
+    @JsonIgnore
+    //@JsonManagedReference(value = "market-marketproduct")
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
     private List<MarketProduct> marketProductList;
 }

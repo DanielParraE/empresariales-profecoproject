@@ -1,12 +1,12 @@
 DELETE FROM consumers;
 
-INSERT INTO consumers (id, full_name, rfc, phone_number, email) VALUES (1, 'Juan', 'JULM8305281A9', '6449879878', 'juan@gmail.com');
-INSERT INTO consumers (id, full_name, rfc, phone_number, email) VALUES (2, 'Marisol', 'MALM8305281A9', '6559873216', 'marisol@gmail.com');
-INSERT INTO consumers (id, full_name, rfc, phone_number, email) VALUES (3, 'Beni', 'BELM8305281A9', '6777419638', 'beni@gmail.com');
+INSERT INTO consumers (id, full_name, rfc, phone_number, email, image) VALUES (1, 'Juan', 'JULM8305281A9', '6449879878', 'juan@gmail.com', 'abc-person.jpg');
+INSERT INTO consumers (id, full_name, rfc, phone_number, email, image) VALUES (2, 'Marisol', 'MALM8305281A9', '6559873216', 'marisol@gmail.com', 'abc-person.jpg');
+INSERT INTO consumers (id, full_name, rfc, phone_number, email, image) VALUES (3, 'Beni', 'BELM8305281A9', '6777419638', 'beni@gmail.com', 'abc-person.jpg');
 
 delete from markets;
-insert into markets(id, name, rfc, image) values (1, 'Walmart',  'WALM420112PP1', 'abc-market.png');
-insert into markets(id, name, rfc, image) values (2, 'Soriana',  'SORI420112PP1', 'abc-market.png');
+insert into markets(id, name, rfc, image, web_page) values (1, 'Walmart',  'WALM420112PP1', 'abc-market.png', 'http://walmart.com');
+insert into markets(id, name, rfc, image, web_page) values (2, 'Soriana',  'SORI420112PP1', 'abc-market.png', 'http://soriana.com');
 
 delete from addresses;
 insert into addresses(id, post_code, city, street, market_id) values(1, '85900', 'Obregón', 'calle 200', 1);
@@ -34,8 +34,8 @@ insert into product_review(id, market_product_id, comment, rating, consumer_id) 
 insert into product_review(id, market_product_id, comment, rating, consumer_id) values (2, 1, 'Regular', 3.2, 2);
 
 delete from market_review;
-insert into market_review(id, market_id, comment, rating, consumer_id) values (3, 1, 'excelente lugar', 5.0, 1);
-insert into market_review(id, market_id, comment, rating, consumer_id) values (4, 1, 'lugar pequeño', 3.2, 2);
+insert into market_review(id, market_id, comment, rating, consumer_id, created_at) values (3, 1, 'excelente lugar', 5.0, 1, '2019-09-05');
+insert into market_review(id, market_id, comment, rating, consumer_id, created_at) values (4, 1, 'lugar pequeño', 3.2, 2, '2020-10-01');
 
 DELETE FROM inconsistencies;
 

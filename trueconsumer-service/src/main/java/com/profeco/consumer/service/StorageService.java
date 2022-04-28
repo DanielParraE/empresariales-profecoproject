@@ -1,10 +1,11 @@
-package com.profeco.consumer.service.storage;
+package com.profeco.consumer.service;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.core.io.Resource;
 
 import java.nio.file.Path;
 import java.util.stream.Stream;
+
 
 public interface StorageService {
     void init();

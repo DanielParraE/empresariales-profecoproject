@@ -34,5 +34,10 @@ public class DomainProductService implements ProductService{
         return productRepository.findByNameContainingIgnoreCase(name);
     }
 
+    @Override
+    public List<Product> findByMarketAndName(Market market, String name) {
+        return productRepository.findByMarketProductListMarketAndNameContainingIgnoreCase(market, name);
+    }
+
 
 }

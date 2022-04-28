@@ -1,6 +1,7 @@
 package com.profeco.consumer.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
@@ -44,7 +45,8 @@ public class Consumer {
     private String email;
 
     @Valid
-    @JsonManagedReference(value = "consumer-review")
+    @JsonIgnore
+    //@JsonManagedReference(value = "consumer-review")
     @OneToMany(mappedBy = "consumer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviewList;
 

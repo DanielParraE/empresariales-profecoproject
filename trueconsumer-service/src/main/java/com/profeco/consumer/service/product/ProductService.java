@@ -10,4 +10,5 @@ public interface ProductService {
     List<Product> findAll();
     List<Product> findByMarket(Market market);
     List<Product> findByName(String name);
+    List<Product> findByMarketAndName(Market market, String name);
 }

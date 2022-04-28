@@ -2,7 +2,6 @@ package com.profeco.consumer.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.profeco.consumer.models.Market;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Table(name = "market_review")
 public class MarketReview extends Review{
 
-    @JsonBackReference(value = "market-reviews")
+    //@JsonBackReference(value = "market-reviews")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "market_id", nullable = false)
-    private Market market;
+    private Market seller;
 }

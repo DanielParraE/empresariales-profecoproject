@@ -1,6 +1,7 @@
 package com.profeco.consumer.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +29,8 @@ public class Review {
     @DecimalMax(value = "5.0", message = "rating must not be greater than 5")
     private float rating;
 
-    @JsonBackReference(value = "consumer-review")
+    //@JsonBackReference(value = "consumer-review")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "consumer_id", nullable = false)
     private Consumer consumer;

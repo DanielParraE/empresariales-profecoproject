@@ -1,6 +1,6 @@
 package com.profeco.consumer;
 
-import com.profeco.consumer.service.storage.StorageService;
+import com.profeco.consumer.service.StorageService;
 import com.profeco.consumer.service.storage.StorageProperties;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

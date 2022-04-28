@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfbdd71d-a93b-40e6-a6d9-0f2fdd12fd4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/profeco-control-web/src/main/java/com/profeco/profecocontrolweb/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/controller/MarketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/repositories/MarketRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/service/market/DomainMarketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/service/market/MarketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/truemarket-web/src/main/java/com/profeco/truemarketweb/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ldap/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ldap/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.gradle/7.1.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.gradle/7.1.1/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.gradle/7.1.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.gradle/7.1.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.gradle/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-service/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profeco-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/profeco-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profeco-service/src/main/java/com/profeco/ServiceProfecoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/profeco-service/src/main/java/com/profeco/ServiceProfecoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trueconsumer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/templates/products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/java/com/profeco/trueconsumerweb/models/Consumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/java/com/profeco/trueconsumerweb/models/MarketReview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/java/com/profeco/trueconsumerweb/models/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/static/css/reviews.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/templates/market-reviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/entities/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/entities/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/entities/MarketReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/java/com/profeco/consumer/entities/MarketReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trueconsumer-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-service/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trueconsumer-web/src/main/java/com/profeco/trueconsumerweb/controller/MarketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/java/com/profeco/trueconsumerweb/controller/MarketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trueconsumer-web/src/main/java/com/profeco/trueconsumerweb/models/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/java/com/profeco/trueconsumerweb/models/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/static/css/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/static/css/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/templates/fragments/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,18 +66,18 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="profeco" type="f1a62948:ProjectNode" />
-                <item name="profeco-control-web" type="2d1252cf:ModuleNode" />
+                <item name="ldap" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="profeco" type="f1a62948:ProjectNode" />
-                <item name="profeco-control-web" type="2d1252cf:ModuleNode" />
+                <item name="ldap" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="profeco" type="f1a62948:ProjectNode" />
-                <item name="profeco-control-web" type="2d1252cf:ModuleNode" />
+                <item name="ldap" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
               </path>
@@ -117,18 +110,21 @@
                 <item name="profeco" type="f1a62948:ProjectNode" />
                 <item name="truemarket-web" type="2d1252cf:ModuleNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="profeco" type="f1a62948:ProjectNode" />
-                <item name="truemarket-web" type="2d1252cf:ModuleNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -142,8 +138,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/trueconsumer-service" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -155,11 +153,24 @@
       <recent name="com.profeco.profecocontrolweb" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.empresariales-profecoproject:profeco-control-web [bootRun]">
-    <configuration name="empresariales-profecoproject:profeco-control-web [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.empresariales-profecoproject:trueconsumer-web [bootRun]">
+    <configuration name="TrueconsumerWebApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.profeco.trueconsumerweb.TrueconsumerWebApplication" />
+      <module name="profeco.trueconsumer-web.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.profeco.trueconsumerweb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="empresariales-profecoproject:ldap [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/profeco-control-web" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ldap" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -177,10 +188,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="empresariales-profecoproject:profeco-service [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="empresariales-profecoproject:profeco-control-web [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/profeco-service" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/profeco-control-web" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -240,27 +251,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="empresariales-profecoproject:truemarket-service [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/truemarket-service" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="empresariales-profecoproject" />
       <method v="2">
@@ -276,11 +266,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.empresariales-profecoproject:profeco-control-web [bootRun]" />
         <item itemvalue="Gradle.empresariales-profecoproject:trueconsumer-web [bootRun]" />
         <item itemvalue="Gradle.empresariales-profecoproject:trueconsumer-service [bootRun]" />
-        <item itemvalue="Gradle.empresariales-profecoproject:truemarket-service [bootRun]" />
-        <item itemvalue="Gradle.empresariales-profecoproject:profeco-service [bootRun]" />
+        <item itemvalue="Gradle.empresariales-profecoproject:profeco-control-web [bootRun]" />
+        <item itemvalue="Gradle.empresariales-profecoproject:ldap [bootRun]" />
+        <item itemvalue="Application.TrueconsumerWebApplication" />
       </list>
     </recent_temporary>
   </component>

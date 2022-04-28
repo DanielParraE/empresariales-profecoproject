@@ -21,5 +21,5 @@ public class WishlistProduct {
     @JsonBackReference(value = "market-product-wishlist-product")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "market_product_id")
-    private MarketProduct product;
+    private MarketProduct marketProduct;
 }
