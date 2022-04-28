@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <title>Reports</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main class="main">
+    <section class="articles">
+        <article>
+            <div class="card">
+                    <div class="title">
+                        <h3>Reports</h3>
+                    </div>
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link">
+                            <a href="#">Get inconsistencies report</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">Get trending products report</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">Get all wishlist report</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+</body>
+
+</html>
