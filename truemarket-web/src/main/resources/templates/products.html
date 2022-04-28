@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/item.css}"/>
+    <title>Product list</title>
+</head>
+
+<body>
+    <header th:insert="fragments/header.html :: header"> </header>
+    <main class="main">
+        <section class="articles">
+            <article>
+                    <div class="title">
+                        <h1>Product list</h1>
+                    </div>
+                    <form class="search" action="products" method="GET">
+                        <input type="text" placeholder="Search.." id="name" name="name">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    <div class="card" th:each="product: ${products}">
+                        <div class="info">
+                            <div class="item-name">
+                                <a th:href="@{${'http://localhost:8081/products/' + product.id }}">
+                                    <img th:src="@{${'http://localhost:8091/files/' + product.image }}" alt="" class="item-image" >
+                                    <span th:text="${product.name}"/>
+                                </a>
+                            </div>
+
+                            <div class="description">
+                                <h3 class="description-title">Product Info</h3>
+                                <p class="text" th:text="${product.description}" />
+                            </div>
+
+                            <div th:each="marketProduct: ${product.marketProductList}">
+                                <div class="buy-price" th:if="${marketProduct.market.id == 1}">
+                                    <h3 class="market" >Price</h3>
+                                    <div class="price">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h1 th:text="${marketProduct.price}"/>
+                                    </div>
+                                    <a href="products/1" class="buy"><i class="fas fa-pen"></i>Edit product</a>
+                                    <a href="/products/1/reviews" class="buy"><i class="fa fa-star"></i>Reviews</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

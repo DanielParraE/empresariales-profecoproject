@@ -24,8 +24,7 @@
                         <img th:src="@{${'http://localhost:8091/files/' + market.image }}" alt="" class="product-image">
                         <span th:text="${market.name }" class="market-name"/>
                         <a th:href="@{${'http://localhost:8081/markets/' + market.id + '/reviews' }}" class="btn-review">
-                            <i class="far fa-star"></i>Reviews
-                        </a>
+                            <i class="far fa-star"></i>Reviews</a>
                         <a href="#" class="btn-fav"><i class="fa fa-flag"></i>Fav</a>
                     </div>
                 </div>
@@ -51,6 +50,19 @@
                     <div class="description">
                         <h3 class="description-title">Product Info</h3>
                         <p class="text" th:text="${product.description}" />
+                    </div>
+                    <div th:each="marketProduct: ${product.marketProductList}">
+                        <div class="buy-price" th:if="${marketProduct.market.id == 1}">
+                            <div class="price">
+                                <i class="fas fa-dollar-sign"></i>
+                                <h1 th:text="${marketProduct.price}"/>
+                            </div>
+
+                            <a href="#" class="buy"><i class="far fa-star"></i>Reviews</a>
+                            <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Add to wishlist</a>
+                            <a href="#" class="report"><i class="fa fa-flag"></i>Report product</a>
+
+                        </div>
                     </div>
                 </div>
             </div>

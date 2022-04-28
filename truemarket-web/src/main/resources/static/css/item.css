@@ -45,7 +45,7 @@ article {
   float: left;
   width: 10%;
   padding: 10px;
-  background: #60b4df;
+  background: #016400;
   color: white;
   font-size: 17px;
   border: 1px solid grey;
@@ -97,8 +97,9 @@ article {
     margin-right: 1px;
 }
 
-.buy, .report, .product-reviews {
+.buy{
     padding: .7rem 1rem;
+    background: #016400;
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
@@ -108,27 +109,27 @@ article {
     transition: .5s;
 }
 
-.buy {
-    background: #60b4df;
-}
-
-.product-reviews {
-    background: #FFE22A;
-}
-
 .report{
+    padding: .7rem 1rem;
     background: #C0563F;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: .5s;
 }
 
-.buy i, .report i, .product-reviews i{
+.buy i, .report i{
     margin-right: 2px;
 }
 
 .market {
-    width: 10%
+    width: 30%
 }
 
-.buy, .report, .product-reviews {
-    width: 15%;
+.buy, .report {
+    width: 25%;
 }
 
