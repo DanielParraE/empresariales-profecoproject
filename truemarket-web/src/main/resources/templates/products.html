@@ -13,9 +13,14 @@
     <main class="main">
         <section class="articles">
             <article>
-                    <div class="title">
-                        <h1>Product list</h1>
+                    <div class="title-box">
+                        <div class="buy-price">
+                            <h1 class="market" >Product List</h1>
+
+                            <a href="#" class="new-product"><i class="fa fa-plus"></i>New product request</a>
+                        </div>
                     </div>
+
                     <form class="search" action="products" method="GET">
                         <input type="text" placeholder="Search.." id="name" name="name">
                         <button type="submit"><i class="fa fa-search"></i></button>
@@ -36,13 +41,13 @@
 
                             <div th:each="marketProduct: ${product.marketProductList}">
                                 <div class="buy-price" th:if="${marketProduct.market.id == 1}">
-                                    <h3 class="market" >Price</h3>
                                     <div class="price">
                                         <i class="fas fa-dollar-sign"></i>
                                         <h1 th:text="${marketProduct.price}"/>
                                     </div>
                                     <a href="products/1" class="buy"><i class="fas fa-pen"></i>Edit product</a>
                                     <a href="/products/1/reviews" class="buy"><i class="fa fa-star"></i>Reviews</a>
+                                    <a href="products/1" class="buy"><i class="fas fa-flag"></i>Inconsistencies</a>
 
                                 </div>
                             </div>

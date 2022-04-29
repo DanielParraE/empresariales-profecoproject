@@ -28,7 +28,7 @@ article {
     font-weight: bold;
 }
 
-.search .title {
+.search {
     margin-bottom: 10px;
 }
 
@@ -79,14 +79,15 @@ article {
     align-items: center;
 }
 
-.price{
-    width: 15%;
+.price, .title{
     color: #333;
     display: flex;
     align-items: flex-start;
 }
 
-.price h1{
+
+
+.price h1, .title h1{
     font-size: 2.1rem;
     font-weight: 600;
     line-height: 1;
@@ -97,7 +98,7 @@ article {
     margin-right: 1px;
 }
 
-.buy{
+.buy, .new-product, .new-product{
     padding: .7rem 1rem;
     background: #016400;
     text-decoration: none;
@@ -110,19 +111,15 @@ article {
 }
 
 .report{
-    padding: .7rem 1rem;
     background: #C0563F;
-    text-decoration: none;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: .5s;
 }
 
-.buy i, .report i{
+.buy i, .report i, .new-product i{
     margin-right: 2px;
+}
+
+.price {
+    width: 15%;
 }
 
 .market {
@@ -133,3 +130,11 @@ article {
     width: 25%;
 }
 
+
+.title {
+    width: 30%;
+}
+
+.title-box {
+    margin-bottom: 20px;
+}

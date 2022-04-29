@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" th:href="@{/css/market-details.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{/css/item.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{/css/reviews.css}"/>
-    <title>Market Reviews</title>
+    <title>Product Reviews</title>
 </head>
 
 <body>
@@ -19,8 +19,13 @@
             <div class="card">
                 <div class="info">
                     <div class="title">
-                        <h1>Market Review</h1>
+                        <h1>Product Review</h1>
                     </div>
+                    <div class="market-name">
+                        <img th:src="@{${'http://localhost:8091/files/' + market.image }}" alt="" class="product-image">
+                        <span th:text="${market.name }" class="market-name"/>
+                    </div>
+
                     <div class="market-name">
                         <img th:src="@{${'http://localhost:8091/files/' + market.image }}" alt="" class="product-image">
                         <span th:text="${market.name }" class="market-name"/>
@@ -37,7 +42,7 @@
 
         <article class="reviews">
             <div class="title">
-                <h1>Review list</h1>
+                <h1>Product list</h1>
             </div>
 
             <div class="review-box" th:each="reviewer: ${market.reviews}">
