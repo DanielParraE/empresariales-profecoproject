@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfbdd71d-a93b-40e6-a6d9-0f2fdd12fd4d" name="Changes" comment="market &amp; product views in true-consumer">
-      <change afterPath="$PROJECT_DIR$/truemarket-web/src/main/java/com/profeco/truemarketweb/controller/MarketController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/truemarket-web/src/main/java/com/profeco/truemarketweb/service/MarketService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/truemarket-web/src/main/resources/static/css/reviews.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -14,34 +13,6 @@
       <change beforePath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/templates/market-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/trueconsumer-web/src/main/resources/templates/market-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/truemarket-web/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/truemarket-web/src/main/resources/templates/index.html" afterDir="false" />
     </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$/ldap">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$/profeco-service">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$/trueconsumer-service">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$/truemarket-service">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$/truemarket-web">
-          <activation />
-        </task>
         <task path="$PROJECT_DIR$/profeco-control-web">
           <activation />
         </task>

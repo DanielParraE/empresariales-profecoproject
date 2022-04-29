@@ -123,12 +123,3 @@ article {
 .buy i, .report i, .product-reviews i{
     margin-right: 2px;
 }
-
-.market {
-    width: 10%
-}
-
-.buy, .report, .product-reviews {
-    width: 15%;
-}
-
