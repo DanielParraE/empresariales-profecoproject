@@ -1,0 +1,41 @@
+.form-item {
+    margin: 10px;
+}
+
+.form-item label, .form-item input {
+    font-size: 1.2rem;
+}
+
+.inconsistency-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.inconsistency-details .form-item{
+    width: calc(100% / 2 - 20px);
+}
+
+.inconsistency-details .form-item input, .inconsistency-details .form-item select {
+    height: 40px;
+    width: 100%;
+}
+
+.inconsistency-details .form-item input[type=file], .inconsistency-details .form-item textarea {
+    height: 80px;
+    width: 100%;
+}
+
+.button {
+    height: 40px;
+    margin: 45px 0;
+}
+
+.button input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    color: #fff;
+    outline: none;
+    background: #60b4df;
+}

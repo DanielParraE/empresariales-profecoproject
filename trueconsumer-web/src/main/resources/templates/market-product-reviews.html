@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/market-details.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/item.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/reviews.css}"/>
+    <title>Market Product Reviews</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main>
+
+    <section class="articles">
+        <article class="sellers">
+            <div class="card">
+                <div class="info">
+                    <div class="title">
+                        <h1>Market Product Review</h1>
+                    </div>
+                    <div class="market-name">
+                        <img th:src="@{${'http://localhost:8091/files/' + market.image }}" alt="" class="product-image">
+                        <span th:text="${market.name }" class="market-name"/>
+                    </div>
+                </div>
+
+                <div class="market-name">
+                    <img th:src="@{${'http://localhost:8091/files/' + product.image }}" alt="" class="product-image">
+                    <span th:text="${product.name }"/>
+                </div>
+
+                <div class="review-form">
+                    <form class="search" action="markets" method="POST">
+                        <input type="text" placeholder="Describe your experience" id="comment" name="comment">
+                        <button type="submit"><i class="fa fa-plus"></i></button>
+                    </form>
+                </div>
+            </div>
+        </article>
+
+        <article class="reviews">
+            <div class="title">
+                <h1>Review list</h1>
+            </div>
+
+            <div class="review-box" th:each="reviewer: ${reviews}">
+
+                <div class="box">
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img th:src="@{${'http://localhost:8091/files/' + reviewer.consumer.image }}" alt=""/>
+                        </div>
+                        <div class="name-date">
+                            <strong th:text="${reviewer.consumer.fullName}"/>
+                            <span th:text="${reviewer.createdAt}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+
+                <div class="reviewer-comment">
+                    <p th:text="${reviewer.comment}"/>
+                </div>
+            </div>
+
+        </article>
+    </section>
+</main>
+</body>
+
+</html>

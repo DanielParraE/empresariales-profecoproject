@@ -1,5 +1,7 @@
 package com.profeco.trueconsumerweb.controller;
 
+import com.profeco.trueconsumerweb.models.Market;
+import com.profeco.trueconsumerweb.models.MarketProduct;
 import com.profeco.trueconsumerweb.models.Product;
 import com.profeco.trueconsumerweb.service.MarketService;
 import com.profeco.trueconsumerweb.service.ProductService;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.websocket.server.PathParam;
+import java.util.Optional;
 
 @Controller
 public class ProductController {
@@ -42,5 +45,24 @@ public class ProductController {
             model.addAttribute("product", product);
             return "product-details";
 
+    }
+
+    @GetMapping(value = "/products/{productId}/markets/{marketId}/reviews")
+    public String getMarketProductReviews(@PathVariable(value = "productId", required = true) Long productId,
+                                          @PathVariable(value = "marketId", required = true) Long marketId,
+                                          Model model){
+        Product product = productService.getProductAsObject(productId);
+        Optional<MarketProduct> market = product.getMarketProductList()
+                            .stream()
+                            .filter(marketProduct -> marketProduct.getMarket().getId() == marketId).findFirst();
+
+        if (market.isPresent()) {
+            model.addAttribute("product", product);
+            model.addAttribute("market", market.get().getMarket());
+            model.addAttribute("reviews", market.get().getReviews());
+            return "market-product-reviews";
+        }
+
+        return "";
     }
 }

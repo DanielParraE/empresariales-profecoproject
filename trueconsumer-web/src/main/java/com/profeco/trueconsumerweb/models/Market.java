@@ -15,5 +15,6 @@ public class Market implements Serializable {
     private String name;
     private String webPage;
     private String image;
+    private List<Address> addressList;
     private List<MarketReview> reviews;
 }

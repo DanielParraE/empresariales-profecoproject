@@ -25,7 +25,7 @@
                         <span th:text="${market.name }" class="market-name"/>
                         <a th:href="@{${'http://localhost:8081/markets/' + market.id + '/reviews' }}" class="btn-review">
                             <i class="far fa-star"></i>Reviews</a>
-                        <a href="#" class="btn-fav"><i class="fa fa-flag"></i>Fav</a>
+                        <a href="#" class="btn-fav"><i class="fa fa-heart"></i>Fav</a>
                     </div>
                 </div>
             </div>
@@ -58,9 +58,11 @@
                                 <h1 th:text="${marketProduct.price}"/>
                             </div>
 
-                            <a href="#" class="buy"><i class="far fa-star"></i>Reviews</a>
+                            <a th:href="@{${'http://localhost:8081/products/' + product.id + '/markets/' + marketProduct.market.id + '/reviews/'}}"
+                               class="buy"><i class="far fa-star"></i>Reviews</a>
                             <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Add to wishlist</a>
-                            <a href="#" class="report"><i class="fa fa-flag"></i>Report product</a>
+                            <a th:href="@{${'http://localhost:8081/products/' + product.id + '/markets/' + marketProduct.market.id + '/inconsistencies/'}}"
+                               class="report"><i class="fa fa-flag"></i>Report product</a>
 
                         </div>
                     </div>
