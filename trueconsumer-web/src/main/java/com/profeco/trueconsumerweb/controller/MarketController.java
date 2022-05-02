@@ -54,17 +54,4 @@ public class MarketController {
         model.addAttribute("market", market);
         return "market-reviews";
     }
-
-    @GetMapping(value = "/markets/{marketId}/products/{productId}/reviews")
-    public String getMarketDetailsPage(@PathVariable(value = "id", required = true) Long marketId,
-                                       @PathVariable(value = "name", required = true) Long productId, Model model){
-        Product[] products;
-
-//        products = productService.getProductsByMarketIdAndName(marketId, productId);
-//
-//        Market market = marketService.getMarket(id);
-//        model.addAttribute("market", market);
-//        model.addAttribute("products", products);
-        return "market-details";
-    }
 }

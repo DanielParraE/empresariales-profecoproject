@@ -30,7 +30,9 @@
                         <p th:text="${product.description}"/>
                     </div>
                     <div class="buy-price" th:each="marketProduct: ${product.marketProductList}">
-                        <h3 class="market" th:text="${marketProduct.market.name}"/>
+                        <a th:href="@{${'http://localhost:8081/markets/' + marketProduct.market.id + '/products?name=' + product.name }}">
+                            <h3 class="market" th:text="${marketProduct.market.name}"/>
+                        </a>
                         <div class="price">
                             <i class="fas fa-dollar-sign"></i>
                             <h1 th:text="${marketProduct.price}"/>
