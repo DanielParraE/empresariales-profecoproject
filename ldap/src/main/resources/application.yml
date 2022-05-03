@@ -7,8 +7,11 @@ server:
 spring:
   ldap:
     embedded:
-      port: 8389
+      port: 389
       ldif: classpath:ldap-data.ldif
       base-dn: dc=profeco,dc=org
       validation:
         enabled: false
+      credential:
+          username: uid=admin
+          password: secret

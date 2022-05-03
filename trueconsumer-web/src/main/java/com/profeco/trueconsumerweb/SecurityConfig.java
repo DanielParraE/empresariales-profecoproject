@@ -13,9 +13,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.ldapAuthentication()
                 .userDnPatterns("uid={0},ou=consumers")
-                .groupSearchBase("ou=groups")
+                .groupSearchBase("ou=consumers")
                 .contextSource()
-                .url("ldap://localhost:8389/dc=profeco,dc=org")
+                .url("ldap://localhost:389/dc=profeco,dc=org")
                 .and()
                 .passwordCompare()
                 .passwordEncoder(new BCryptPasswordEncoder())
@@ -28,8 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 //.antMatchers("/js/**", "/css/**", "/img/**", "/", "/markets", "/products").permitAll()
                 //.anyRequest().authenticated()
-                //.and()
-                //.formLogin()
+                .and()
+                .formLogin()
         //.loginPage("/login")
         ;
     }
