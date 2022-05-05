@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/signup.css}"/>
+    <title>Profile</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main>
+
+    <section class="articles">
+        <article class="sellers">
+            <div class="card">
+                <div class="info">
+                    <div class="title">
+                        <h1>Profile</h1>
+                    </div>
+
+                    <form class="form" th:action="@{/consumers/}" th:object="${consumer}" method="post" enctype="multipart/form-data">
+                        <div class="form-details">
+                            <div class="form-item">
+                                <label for="email">Email: </label>
+                                <input type="email" id="email" name="email" required th:field="*{email}" />
+                            </div>
+
+                            <div class="form-item">
+                                <label for="password">Password: </label>
+                                <input type="password" id="password" th:field="*{password}">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="phone">Phone: </label>
+                                <input type="text" id="phone" th:field="*{phoneNumber}">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="rfc">RFC: </label>
+                                <input id="rfc" type="text" th:field="*{rfc}">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="fullname">Name: </label>
+                                <input type="text" id="fullname" th:field="*{fullName}">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="surname">Surname: </label>
+                                <input type="text" id="surname" th:field="*{lastName}">
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <input type="submit" value="Create account">
+                        </div>
+
+                        <div class="google">
+                            <a class="btn-google" th:href="@{/oauth2/authorization/google}">Continue with Google</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </article>
+
+    </section>
+</main>
+</body>
+
+</html>

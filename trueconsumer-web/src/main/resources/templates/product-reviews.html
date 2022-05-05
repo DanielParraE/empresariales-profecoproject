@@ -22,12 +22,12 @@
                         <h1>Product Review</h1>
                     </div>
                     <div class="market-name">
-                        <img th:src="@{${'http://localhost:8091/files/' + market.image }}" alt="" class="product-image">
+                        <img th:src="${market.image}" alt="" class="product-image">
                         <span th:text="${market.name }" class="market-name"/>
                     </div>
 
                     <div class="market-name">
-                        <img th:src="@{${'http://localhost:8091/files/' + market.image }}" alt="" class="product-image">
+                        <img th:src="${ market.image }" alt="" class="product-image">
                         <span th:text="${market.name }" class="market-name"/>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="box">
                     <div class="profile">
                         <div class="profile-img">
-                            <img th:src="@{${'http://localhost:8091/files/' + reviewer.consumer.image }}" alt=""/>
+                            <img th:src="${ reviewer.consumer.image }" alt=""/>
                         </div>
                         <div class="name-date">
                             <strong th:text="${reviewer.consumer.fullName}"/>

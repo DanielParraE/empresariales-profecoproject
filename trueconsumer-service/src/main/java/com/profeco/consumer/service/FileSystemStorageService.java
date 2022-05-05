@@ -53,7 +53,8 @@ public class FileSystemStorageService implements StorageService {
                         StandardCopyOption.REPLACE_EXISTING);
             }
 
-            return destinationFile.getFileName().toString();
+            //return destinationFile.getFileName().toString();
+            return "http://localhost:8091/files/" + destinationFile.getFileName();
         }
         catch (IOException e) {
             throw new StorageException("Failed to store file.", e);

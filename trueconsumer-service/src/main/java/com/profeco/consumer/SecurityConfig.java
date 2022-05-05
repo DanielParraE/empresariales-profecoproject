@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .userDnPatterns("uid={0},ou=consumers")
                 .groupSearchBase("ou=groups")
                 .contextSource()
-                .url("ldap://localhost:8389/dc=profeco,dc=org")
+                .url("ldap://localhost:389/dc=profeco,dc=org")
                 .and()
                 .passwordCompare()
                 .passwordEncoder(new BCryptPasswordEncoder())
@@ -35,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //.and()
                 //.authorizeRequests().antMatchers("/console/**").permitAll();
-        http.headers().frameOptions().disable();
+        //http.headers().frameOptions().disable();
+        http.csrf().disable();
     }
 
     @Override

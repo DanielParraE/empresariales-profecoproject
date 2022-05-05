@@ -43,7 +43,7 @@ article {
 }
 
 .container{
-    max-width: 65rem;
+    max-width: 95%;
     padding: 0 2rem;
     margin: 0 auto;
     display: flex;

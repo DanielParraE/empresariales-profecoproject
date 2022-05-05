@@ -2,13 +2,17 @@ package com.profeco.trueconsumerweb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Consumer implements Serializable {
     private Long id;
@@ -19,4 +23,6 @@ public class Consumer implements Serializable {
     private String image;
     private Date createdAt;
     private String  status;
+    private String lastName;
+    private String password;
 }

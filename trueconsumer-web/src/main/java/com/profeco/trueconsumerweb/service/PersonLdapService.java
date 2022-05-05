@@ -18,7 +18,7 @@ import org.springframework.ldap.support.LdapNameBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonLdapRepository implements PersonRepository {
+public class PersonLdapService implements PersonRepository {
     public static final String BASE_DN = "dc=profeco,dc=org";
     @Autowired
     private LdapTemplate ldapTemplate;
@@ -50,7 +50,9 @@ public class PersonLdapRepository implements PersonRepository {
         attrs.put("uid", p.getUserId());
         attrs.put("cn", p.getFullName());
         attrs.put("sn", p.getLastName());
-        attrs.put("consumerId", p.getConsumerid());
+        attrs.put("consumerId", p.getConsumerId());
+        attrs.put("authenticationType", p.getAuthenticationType());
+        attrs.put("userPassword", p.getPassword());
         return attrs;
     }
     public Name buildDn(String userId) {
@@ -60,13 +62,23 @@ public class PersonLdapRepository implements PersonRepository {
         return LdapNameBuilder.newInstance(BASE_DN).add("ou", "consumers").build();
     }
     @Override
-    public List<Person> retrieve() {
+    public List<Person> findAll() {
         SearchControls searchControls = new SearchControls();
         searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
-        List<Person> people = ldapTemplate.search(query().where("objectclass").is("person").and("consumerid").isPresent(),
+        List<Person> people = ldapTemplate.search(query().where("objectclass").is("person").and("consumerId").isPresent(),
                 new PersonAttributeMapper());
         return people;
     }
+
+    @Override
+    public Person findByUID(String uid) {
+        SearchControls searchControls = new SearchControls();
+        searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
+        List<Person> people = ldapTemplate.search(query().where("objectclass").is("person").and("consumerId").isPresent().and("uid").is(uid),
+                new PersonAttributeMapper());
+        return (people.isEmpty()) ? null: people.get(0);
+    }
+
     private class PersonAttributeMapper implements AttributesMapper<Person> {
         @Override
         public Person mapFromAttributes(Attributes attributes) throws NamingException {
@@ -74,8 +86,10 @@ public class PersonLdapRepository implements PersonRepository {
             person.setUserId(null != attributes.get("uid") ? attributes.get("uid").get().toString() : null);
             person.setFullName(null != attributes.get("cn") ? attributes.get("cn").get().toString() : null);
             person.setLastName(null != attributes.get("sn") ? attributes.get("sn").get().toString() : null);
-            person.setConsumerid(
-                    null != attributes.get("consumerid") ? attributes.get("consumerid").get().toString() : null);
+            person.setConsumerId(
+                    null != attributes.get("consumerId") ? attributes.get("consumerId").get().toString() : null);
+            person.setAuthenticationType(
+                    null != attributes.get("authenticationType") ? attributes.get("authenticationType").get().toString() : null);
             return person;
         }
     }

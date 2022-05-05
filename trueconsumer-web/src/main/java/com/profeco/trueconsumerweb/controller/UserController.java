@@ -7,34 +7,35 @@ import com.profeco.trueconsumerweb.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
-public class AuthController {
+@Controller
+@RequestMapping(value = "/users")
+public class UserController {
 
     @Autowired
     private PersonRepository personRepo;
 
-    @PostMapping("/add-user")
+    @PostMapping
     public ResponseEntity<String> bindLdapPerson(@RequestBody Person person) {
         String result = personRepo.create(person);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        return ResponseEntity.ok(result);
     }
-    @PutMapping("/update-user")
+    @PutMapping
     public ResponseEntity<String> rebindLdapPerson(@RequestBody Person person) {
         String result = personRepo.update(person);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    @GetMapping("/retrieve-users")
+    @GetMapping
     public ResponseEntity<List<Person>> retrieve() {
-        return new ResponseEntity<List<Person>>(personRepo.retrieve(), HttpStatus.OK);
+        List<Person> personList = personRepo.findAll();
+        if (personList.isEmpty())
+            return ResponseEntity.noContent().build();
+
+        return ResponseEntity.ok(personList);
     }
-    @GetMapping("/remove-user")
+    @DeleteMapping
     public ResponseEntity<String> unbindLdapPerson(@RequestParam(name = "userId") String userId) {
         String result = personRepo.remove(userId);
         return new ResponseEntity<>(result, HttpStatus.OK);

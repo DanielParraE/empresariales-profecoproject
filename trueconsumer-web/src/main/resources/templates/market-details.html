@@ -21,7 +21,7 @@
                         <h1>Market details</h1>
                     </div>
                     <div class="market-name">
-                        <img th:src="@{${'http://localhost:8091/files/' + market.image }}" alt="" class="product-image">
+                        <img th:src="${market.image}" alt="" class="product-image">
                         <span th:text="${market.name }" class="market-name"/>
                         <a th:href="@{${'http://localhost:8081/markets/' + market.id + '/reviews' }}" class="btn-review">
                             <i class="far fa-star"></i>Reviews</a>
@@ -43,7 +43,7 @@
                 <div class="info">
                     <div class="item-name">
                         <a th:href="@{${'http://localhost:8081/products/' + product.id }}">
-                            <img th:src="@{${'http://localhost:8091/files/' + product.image }}" alt="" class="item-image" >
+                            <img th:src="@{${ product.image }}" alt="" class="item-image" >
                             <span th:text="${product.name}"/>
                         </a>
                     </div>

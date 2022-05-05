@@ -21,7 +21,7 @@
                         <h1>Product details</h1>
                     </div>
                     <div class="productName">
-                        <img th:src="@{${'http://localhost:8091/files/' + product.image }}" alt="" class="product-image">
+                        <img th:src="${product.image}" alt="" class="product-image">
                         <h1 th:text="${product.name }"/>
                         <p th:text="${product.category.name}"/>
                     </div>

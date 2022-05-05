@@ -25,6 +25,8 @@ public class ProductController {
     @Autowired
     private MarketService marketService;
 
+
+
     @GetMapping(value = "/products")
     public String getPage(@RequestParam(value = "name", required = false) String name, Model model){
         Product[] products;
