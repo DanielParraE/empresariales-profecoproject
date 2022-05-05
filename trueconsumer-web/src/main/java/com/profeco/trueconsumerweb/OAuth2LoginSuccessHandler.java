@@ -49,8 +49,8 @@ public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSu
                     .fullName(oauth2User.getName()).build();
 
             String surname = oauth2User.getSurname() == null ? "" : oauth2User.getSurname();
-            System.out.println(oauth2User.getAttributes());
-            Consumer consumerCreated = consumerService.postConsumer(consumer, bytes, oauth2User.getAttribute("sub").toString());
+
+            Consumer consumerCreated = consumerService.postConsumer(consumer, bytes, oauth2User.getAttribute("sub").toString() + ".png");
 
             Person personLdap = Person.builder()
                     .userId(oauth2User.getEmail())
