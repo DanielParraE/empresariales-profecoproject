@@ -46,8 +46,8 @@ public class ConsumerController {
     }
 
     //@PostMapping(value = "/consumers/edit", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    @PostMapping(value = "/consumers/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE,
-            consumes = {MediaType.APPLICATION_OCTET_STREAM_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+    @PostMapping(value = "/consumers/{id}", produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
     public String updateConsumer(@RequestPart Consumer consumer,
                                                    @RequestPart(required = false) MultipartFile file
                                  ,@PathVariable(required = true) Long id) throws IOException {

@@ -58,10 +58,10 @@
                                 <h1 th:text="${marketProduct.price}"/>
                             </div>
 
-                            <a th:href="@{${'http://localhost:8081/products/' + product.id + '/markets/' + marketProduct.market.id + '/reviews/'}}"
+                            <a th:href="@{${'http://localhost:8081/markets/' + marketProduct.market.id + '/products/' + product.id + '/reviews/'}}"
                                class="buy"><i class="far fa-star"></i>Reviews</a>
                             <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Add to wishlist</a>
-                            <a th:href="@{${'http://localhost:8081/products/' + product.id + '/markets/' + marketProduct.market.id + '/inconsistencies/'}}"
+                            <a th:href="@{${'http://localhost:8081/markets/' + marketProduct.market.id + '/products/' + product.id + '/inconsistencies/'}}"
                                class="report"><i class="fa fa-flag"></i>Report product</a>
 
                         </div>

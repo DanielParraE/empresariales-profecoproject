@@ -17,4 +17,5 @@ public class MarketProduct implements Serializable {
     private List<MarketProductReview> reviews;
     private float price;
     private Date updatedAt;
+    private List<Inconsistency> inconsistencies;
 }

@@ -49,7 +49,7 @@ public class ProductController {
 
     }
 
-    @GetMapping(value = "/products/{productId}/markets/{marketId}/reviews")
+    @GetMapping(value = "/markets/{marketId}/products/{productId}/reviews")
     public String getMarketProductReviews(@PathVariable(value = "productId", required = true) Long productId,
                                           @PathVariable(value = "marketId", required = true) Long marketId,
                                           Model model){

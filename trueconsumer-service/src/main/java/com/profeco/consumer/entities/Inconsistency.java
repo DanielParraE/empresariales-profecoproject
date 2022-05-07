@@ -38,13 +38,13 @@ public class Inconsistency {
     private Date purchasedAt;
 
     @JsonBackReference(value = "consumer-author")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumn(name = "consumer_id", nullable = false)
     private Consumer author;
 
     @JsonBackReference(value = "market-product-inconsistency")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "market_product_id", nullable = false)
     private MarketProduct product;
 }

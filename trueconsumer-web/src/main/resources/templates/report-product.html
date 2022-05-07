@@ -5,6 +5,7 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{/css/inconsistency.css}"/>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Report inconsistency</title>
 </head>
 
@@ -20,7 +21,7 @@
                         <h1>Report inconsistency</h1>
                     </div>
 
-                    <form class="form-inconsistency">
+                    <form class="form-inconsistency" th:object="${inconsistency}">
                         <div class="inconsistency-details">
                             <div class="form-item">
                                 <label for="market">Market: </label>
@@ -36,27 +37,27 @@
 
                             <div class="form-item">
                                 <label for="publishedPrice">Published price: </label>
-                                <input type="number" id="publishedPrice" >
+                                <input type="number" id="publishedPrice" th:value="${publishedPrice}" readonly>
                             </div>
 
                             <div class="form-item">
                                 <label for="realPrice">Real price: </label>
-                                <input type="number" id="realPrice">
+                                <input type="number" id="realPrice" min="0" th:field="*{realPrice}">
                             </div>
 
                             <div class="form-item">
-                                <label for="evidence">Evidence: </label>
-                                <input type="file" id="evidence" >
+                                <label for="file">Evidence: </label>
+                                <input type="file" id="file" name="file">
                             </div>
 
                             <div class="form-item">
                                 <label for="description">Description: </label>
-                                <textarea name="description" id="description" rows="3"></textarea>
+                                <textarea name="description" id="description" rows="3" th:field="*{description}"></textarea>
                             </div>
 
                             <div class="form-item">
-                                <label for="purchaseDate">Purchase date: </label>
-                                <input type="date" id="purchaseDate">
+                                <label for="purchasedAt">Purchase date: </label>
+                                <input type="date" id="purchasedAt" th:field="*{purchasedAt}">
                             </div>
 
                             <div class="form-item">
@@ -70,7 +71,7 @@
                         </div>
 
                         <div class="button">
-                            <input type="submit" value="Send report">
+                            <input type="button" value="Send report" onclick="send()">
                         </div>
                     </form>
                 </div>
@@ -79,6 +80,71 @@
 
     </section>
 </main>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+
+        async function send(){
+            var inconsistencyForm = [[${inconsistency}]];
+
+            inconsistencyForm.realPrice = document.getElementById('realPrice').value;
+
+            inconsistencyForm.publishedPrice = document.getElementById('publishedPrice').value;
+
+            var description = document.getElementById('description').value;
+
+            if (description === ""){
+                showAlert("Description must not be empty!!")
+                return
+            }
+            inconsistencyForm.description = description;
+
+            var date = document.getElementById('purchasedAt').value;
+
+            if (!date){
+                showAlert("Purchase date is important!!")
+                return
+            }
+            inconsistencyForm.purchasedAt = date;
+
+            inconsistencyForm.product = {
+                "id": [[${marketProductId}]]
+            }
+
+            const json = JSON.stringify(inconsistencyForm);
+
+            const blob = new Blob([json], {
+              type: 'application/json'
+            });
+
+            const data = new FormData();
+
+            data.append("inconsistency", blob);
+
+            await fetch('http://localhost:8081/inconsistencies/', {
+              method: 'POST',
+              body: data,
+            })
+
+            await Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Your info is saved',
+              timer: 5000
+            })
+            window.location.href = 'http://localhost:8081'
+        }
+
+        function showAlert(message){
+            Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: message
+            })
+        }
+
+    /*]]>*/
+    </script>
 </body>
 
 </html>
