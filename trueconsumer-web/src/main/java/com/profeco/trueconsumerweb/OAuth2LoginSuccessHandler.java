@@ -5,6 +5,7 @@ import com.profeco.trueconsumerweb.models.CustomOauth2User;
 import com.profeco.trueconsumerweb.models.Person;
 import com.profeco.trueconsumerweb.repository.PersonRepository;
 import com.profeco.trueconsumerweb.service.ConsumerService;
+import jdk.swing.interop.SwingInterOpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+import javax.print.attribute.Attribute;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,13 +44,15 @@ public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSu
             BufferedInputStream in = new BufferedInputStream(new URL(oauth2User.getPicture()).openStream());
             byte[] bytes = in.readAllBytes();
 
+            String surname = oauth2User.getSurname() == null ? "" : oauth2User.getSurname();
+
             //save consumer
             Consumer consumer = Consumer.builder()
-                    .rfc("ABCD420313AP1")
                     .email(oauth2User.getEmail())
-                    .fullName(oauth2User.getName()).build();
+                    .fullName(oauth2User.getName())
+                    .surname(oauth2User.getSurname()).build();
 
-            String surname = oauth2User.getSurname() == null ? "" : oauth2User.getSurname();
+
 
             Consumer consumerCreated = consumerService.postConsumer(consumer, bytes, oauth2User.getAttribute("sub").toString() + ".png");
 

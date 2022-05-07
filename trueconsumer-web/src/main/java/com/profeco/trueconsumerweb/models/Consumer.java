@@ -23,6 +23,6 @@ public class Consumer implements Serializable {
     private String image;
     private Date createdAt;
     private String  status;
-    private String lastName;
+    private String surname;
     private String password;
 }

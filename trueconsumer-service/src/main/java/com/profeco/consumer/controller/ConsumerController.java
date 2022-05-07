@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.print.attribute.standard.Media;
 import javax.validation.Valid;
 import java.io.File;
 import java.util.List;
@@ -64,9 +65,18 @@ public class ConsumerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(consumerCreated);
     }
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<Consumer> updateConsumer(@PathVariable(value = "id") Long id, @RequestBody Consumer consumer) {
+    @PutMapping(value = "/{id}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE })
+    public ResponseEntity<Consumer> updateConsumer(@PathVariable(value = "id") Long id,
+                                                   @RequestPart Consumer consumer,
+                                                   @RequestPart(required = false) MultipartFile file) {
         consumer.setId(id);
+
+        String url =  (file == null)?
+                "http://localhost:8091/files/abc-person.png"
+                : storageService.store(file);
+
+        consumer.setImage(url);
+
         Consumer consumerDB = consumerService.updateConsumer(consumer);
         if (consumerDB == null) {
             return ResponseEntity.notFound().build();

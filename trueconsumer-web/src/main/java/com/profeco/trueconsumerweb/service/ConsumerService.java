@@ -20,12 +20,24 @@ public class ConsumerService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
+    public Consumer getConsumerById(Long id) {
+        String url = "http://localhost:8091/consumers/" + id;
+        return this.restTemplate.getForObject(url, Consumer.class);
+    }
+
     public Consumer postConsumer(Consumer consumer) {
         return postConsumer(consumer, null, "");
     }
 
     public Consumer postConsumer(Consumer consumer, byte[] bytes, String filename) {
-        String url = "http://localhost:8091/consumers";
+        return sendRequest(consumer, bytes, filename, true);
+    }
+
+    public Consumer updateConsumer(Consumer consumer, byte[] bytes, String filename) {
+        return sendRequest(consumer, bytes, filename, false);
+    }
+
+    private Consumer sendRequest(Consumer consumer, byte[] bytes, String filename, boolean isPost){
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
@@ -50,7 +62,14 @@ public class ConsumerService {
 
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
-        return this.restTemplate.postForObject(url, requestEntity, Consumer.class);
+        if (isPost){
+            String url = "http://localhost:8091/consumers";
+            return this.restTemplate.postForObject(url, requestEntity, Consumer.class);
+        } else {
+            String url = "http://localhost:8091/consumers/" + consumer.getId();
+            return this.restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Consumer.class).getBody();
+        }
+
     }
 
 }

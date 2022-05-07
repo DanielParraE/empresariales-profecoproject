@@ -31,8 +31,10 @@ public class Consumer {
     @Size(min = 1, max = 50, message = "0 < name.size < 50")
     private String fullName;
 
-    @Column(name = "rfc", unique = true, nullable = false, length = 13)
-    @NotEmpty(message = "RFC must not be empty!!")
+    private String surname;
+
+    @Column(name = "rfc", unique = true, nullable = true, length = 13)
+    //@NotEmpty(message = "RFC must not be empty!!")
     @Pattern(regexp = "^([A-ZÑ&]{3,4})(\\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\\d|3[01]))([A-Z\\d]{2})([A\\d])$", message = "RFC Pattern is wrong")
     private String rfc;
 

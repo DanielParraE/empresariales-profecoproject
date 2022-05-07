@@ -23,3 +23,6 @@ spring:
             scope:
               - email
               - profile
+
+multipart:
+  enabled: true

@@ -42,8 +42,10 @@ public class DomainConsumerService implements ConsumerService {
         }
         consumerDB.setFullName(consumer.getFullName());
         consumerDB.setPhoneNumber(consumer.getPhoneNumber());
-        //consumerDB.setRfc(consumer.getRfc());
-        consumerDB.setEmail(consumer.getEmail());
+        consumerDB.setImage(consumer.getImage());
+        consumerDB.setRfc(consumer.getRfc());
+        consumerDB.setSurname(consumer.getSurname());
+        //consumerDB.setEmail(consumer.getEmail());
         return consumerRepository.save(consumerDB);
     }
 

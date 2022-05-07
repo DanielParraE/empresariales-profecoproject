@@ -19,30 +19,41 @@ objectclass: top
 objectclass: organizationalUnit
 ou: profecopersonal
 
-dn: uid=ben,ou=consumers,dc=profeco,dc=org
+dn: uid=juan@gmail.com,ou=consumers,dc=profeco,dc=org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
 objectclass: inetOrgPerson
-cn: Ben Alex
-sn: Alex
-uid: ben
-email: ben
+cn: Juan Perez
+sn: Perez
+uid: juan@gmail.com
 consumerId: 1
 authenticationType: Email
-userPassword: $2a$10$c6bSeWPhg06xB1lvmaWNNe4NROmZiSpYhlocU/98HNr2MhIOiSt36
+userPassword: $2a$12$gy5eYGEQv43Vr18cIRRO4uczK4T/9Xc70gjJW.QLmI6rwccTGSHJ2
 
-dn: uid=bob,ou=consumers,dc=profeco,dc=org
+dn: uid=marisol@gmail.com,ou=consumers,dc=profeco,dc=org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
 objectclass: inetOrgPerson
-cn: Bob Hamilton
-sn: Hamilton
-uid: bob
+cn: Marisol Briseño
+sn: Briseño
+uid: marisol@gmail.com
 consumerId: 2
 authenticationType: Email
-userPassword: $2y$10$1FGIl7uP6.YL6JZyZ7P.L.p6y3uTC.9fVughk6d2N4kBoaCuWaElq
+userPassword: $2a$12$JljDckCyzxZJN.PnHwRGCedbnu5XtKhq9FbEZsORGoyjwlVDDZu56
+
+dn: uid=ben@gmail.com,ou=consumers,dc=profeco,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Ben Juarez
+sn: Juarez
+uid: ben@gmail.com
+consumerId: 3
+authenticationType: Email
+userPassword: $2a$12$VSaT4reHhjFa/mmic96mf.SS06eJSaFwOh5ID6KVEccRU0IgCbLjW
 
 dn: uid=joe,ou=profecopersonal,dc=profeco,dc=org
 objectclass: top
@@ -56,14 +67,26 @@ personalId: 1
 authenticationType: Email
 userPassword: $2y$10$hOe1zaBEevUV6nLvZ35qWuKp.pfGMEmxv/ixhcsmoD6gv/OXV1RoK
 
-dn: uid=space,ou=markets,dc=profeco,dc=org
+dn: uid=walmart@gmail.com,ou=markets,dc=profeco,dc=org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
 objectclass: inetOrgPerson
-cn: Space Cadet
-sn: Cadet
-uid: space
+cn: Walmart
+sn: S.A de C.V
+uid: walmart@gmail.com
 marketId: 1
 authenticationType: Email
-userPassword: $2y$10$RrV6cQEeuZMhbSmVuyPVBelgHQnz1dwNH6ersIm/bDVVv.Pncj4xa
+userPassword: $2a$12$H5H8TT7c0GLOjVSxMwW6N.Qh09R.7mtCmOlKaQu9iETymakpCJnnO
+
+dn: uid=soriana@gmail.com,ou=markets,dc=profeco,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Soriana
+sn: S.A de C.V
+uid: soriana@gmail.com
+marketId: 2
+authenticationType: Email
+userPassword: $2a$12$AG.1adDXS.37UdgKwjFfmO4OvM85aLxVZdgXrl4JZeGQ.Lu.ys1dy

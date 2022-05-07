@@ -1,8 +1,8 @@
 DELETE FROM consumers;
 
-INSERT INTO consumers (id, full_name, rfc, phone_number, email, image) VALUES (1, 'Juan', 'JULM8305281A9', '6449879878', 'juan@gmail.com', 'http://localhost:8091/files/abc-person.jpg');
-INSERT INTO consumers (id, full_name, rfc, phone_number, email, image) VALUES (2, 'Marisol', 'MALM8305281A9', '6559873216', 'marisol@gmail.com', 'http://localhost:8091/files/abc-person.jpg');
-INSERT INTO consumers (id, full_name, rfc, phone_number, email, image) VALUES (3, 'Beni', 'BELM8305281A9', '6777419638', 'beni@gmail.com', 'http://localhost:8091/files/abc-person.jpg');
+INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (1, 'Juan Perez', 'JULM8305281A9', '6449879878', 'juan@gmail.com', 'http://localhost:8091/files/abc-person.jpg','Perez', '2019-09-05', 'CREATED');
+INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (2, 'Marisol Briseño', 'MALM8305281A9', '6559873216', 'marisol@gmail.com', 'http://localhost:8091/files/abc-person.jpg', 'Briseño', '2019-09-05', 'CREATED');
+INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (3, 'Ben Juarez', 'BELM8305281A9', '6777419638', 'ben@gmail.com', 'http://localhost:8091/files/abc-person.jpg', 'Juarez', '2019-09-05', 'CREATED');
 
 delete from markets;
 insert into markets(id, name, rfc, image, web_page) values (1, 'Walmart',  'WALM420112PP1', 'http://localhost:8091/files/abc-market.png', 'http://walmart.com');
