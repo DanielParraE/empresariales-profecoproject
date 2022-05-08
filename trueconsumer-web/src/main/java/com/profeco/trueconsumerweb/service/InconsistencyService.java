@@ -3,6 +3,7 @@ package com.profeco.trueconsumerweb.service;
 
 import com.profeco.trueconsumerweb.models.Consumer;
 import com.profeco.trueconsumerweb.models.Inconsistency;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class InconsistencyService {
     private final RestTemplate restTemplate;
+
+    @Value("${backend.consumer-service.url}")
+    private String baseUrl;
 
     public InconsistencyService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
@@ -43,7 +47,7 @@ public class InconsistencyService {
 
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
-        String url = "http://localhost:8091/inconsistencies";
+        String url = baseUrl + "/inconsistencies";
         return this.restTemplate.postForObject(url, requestEntity, Inconsistency.class);
 
     }

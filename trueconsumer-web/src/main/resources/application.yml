@@ -26,3 +26,12 @@ spring:
 
 multipart:
   enabled: true
+
+frontend:
+  url: http://localhost:8081
+
+backend:
+  consumer-service:
+    url: http://localhost:8091
+  ldap:
+    url: ldap://localhost:389

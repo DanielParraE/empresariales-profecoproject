@@ -134,7 +134,7 @@
 
             data.append("consumer", blob);
 
-            var url = 'http://localhost:8081/consumers/' + consumerForm.id
+            var url = [[${@environment.getProperty('frontend.url')}]] + '/consumers/' + consumerForm.id
             await fetch(url, {
               method: 'POST',
               body: data,

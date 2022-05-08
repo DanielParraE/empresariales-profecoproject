@@ -2,6 +2,7 @@ package com.profeco.trueconsumerweb;
 
 import com.profeco.trueconsumerweb.service.CustomOauth2UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,13 +18,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
 
+    @Value("${backend.ldap.url}")
+    private String ldapUrl;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.ldapAuthentication()
                 .userDnPatterns("uid={0},ou=consumers")
                 .groupSearchBase("ou=consumers")
                 .contextSource()
-                .url("ldap://localhost:389/dc=profeco,dc=org")
+                .url(ldapUrl + "/dc=profeco,dc=org")
                 .and()
                 .passwordCompare()
                 .passwordEncoder(new BCryptPasswordEncoder())

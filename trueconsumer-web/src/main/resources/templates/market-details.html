@@ -23,7 +23,7 @@
                     <div class="market-name">
                         <img th:src="${market.image}" alt="" class="product-image">
                         <span th:text="${market.name }" class="market-name"/>
-                        <a th:href="@{${'http://localhost:8081/markets/' + market.id + '/reviews' }}" class="btn-review">
+                        <a th:href="@{${ @environment.getProperty('frontend.url') + '/markets/' + market.id + '/reviews' }}" class="btn-review">
                             <i class="far fa-star"></i>Reviews</a>
                         <a href="#" class="btn-fav"><i class="fa fa-heart"></i>Fav</a>
                     </div>
@@ -42,7 +42,7 @@
             <div class="card" th:each="product: ${products}">
                 <div class="info">
                     <div class="item-name">
-                        <a th:href="@{${'http://localhost:8081/products/' + product.id }}">
+                        <a th:href="@{${ @environment.getProperty('frontend.url') + '/products/' + product.id }}">
                             <img th:src="@{${ product.image }}" alt="" class="item-image" >
                             <span th:text="${product.name}"/>
                         </a>
@@ -58,10 +58,10 @@
                                 <h1 th:text="${marketProduct.price}"/>
                             </div>
 
-                            <a th:href="@{${'http://localhost:8081/markets/' + marketProduct.market.id + '/products/' + product.id + '/reviews/'}}"
+                            <a th:href="@{${@environment.getProperty('frontend.url') + '/markets/' + marketProduct.market.id + '/products/' + product.id + '/reviews/'}}"
                                class="buy"><i class="far fa-star"></i>Reviews</a>
                             <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Add to wishlist</a>
-                            <a th:href="@{${'http://localhost:8081/markets/' + marketProduct.market.id + '/products/' + product.id + '/inconsistencies/'}}"
+                            <a th:href="@{${@environment.getProperty('frontend.url') + '/markets/' + marketProduct.market.id + '/products/' + product.id + '/inconsistencies/'}}"
                                class="report"><i class="fa fa-flag"></i>Report product</a>
 
                         </div>

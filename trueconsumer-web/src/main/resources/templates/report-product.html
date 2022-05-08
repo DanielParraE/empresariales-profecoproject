@@ -121,7 +121,7 @@
 
             data.append("inconsistency", blob);
 
-            await fetch('http://localhost:8081/inconsistencies/', {
+            await fetch( [[${@environment.getProperty('frontend.url')}]] + '/inconsistencies/', {
               method: 'POST',
               body: data,
             })

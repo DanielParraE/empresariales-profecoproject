@@ -23,7 +23,7 @@
                     <div class="card" th:each="product: ${products}">
                         <div class="info">
                             <div class="item-name">
-                                <a th:href="@{${'http://localhost:8081/products/' + product.id }}">
+                                <a th:href="@{${@environment.getProperty('frontend.url') + '/products/' + product.id }}">
                                     <img th:src="${ product.image }" alt="" class="item-image" >
                                     <span th:text="${product.name}"/>
                                 </a>

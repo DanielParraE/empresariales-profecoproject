@@ -2,6 +2,7 @@ package com.profeco.trueconsumerweb.service;
 
 import com.profeco.trueconsumerweb.models.Consumer;
 import com.profeco.trueconsumerweb.models.Market;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,15 @@ import java.io.File;
 public class ConsumerService {
     private final RestTemplate restTemplate;
 
+    @Value("${backend.consumer-service.url}")
+    private String baseUrl;
+
     public ConsumerService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
 
     public Consumer getConsumerById(Long id) {
-        String url = "http://localhost:8091/consumers/" + id;
+        String url = baseUrl + "/consumers/" + id;
         return this.restTemplate.getForObject(url, Consumer.class);
     }
 
@@ -63,10 +67,10 @@ public class ConsumerService {
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
         if (isPost){
-            String url = "http://localhost:8091/consumers";
+            String url =  baseUrl + "/consumers";
             return this.restTemplate.postForObject(url, requestEntity, Consumer.class);
         } else {
-            String url = "http://localhost:8091/consumers/" + consumer.getId();
+            String url = baseUrl + "/consumers/" + consumer.getId();
             return this.restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Consumer.class).getBody();
         }
 

@@ -1,6 +1,7 @@
 package com.profeco.trueconsumerweb.service;
 
 import com.profeco.trueconsumerweb.models.Product;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -9,6 +10,9 @@ import org.springframework.web.client.RestTemplate;
 public class ProductService {
 
     private final RestTemplate restTemplate;
+
+    @Value("${backend.consumer-service.url}")
+    private String baseUrl;
 
     public ProductService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
@@ -19,27 +23,27 @@ public class ProductService {
     }
 
     public Product[] getProductsAsObject() {
-        String url = "http://localhost:8091/products";
+        String url = baseUrl + "/products";
         return this.restTemplate.getForObject(url, Product[].class);
     }
 
     public Product getProductAsObject(Long id) {
-        String url = "http://localhost:8091/products/" + id;
+        String url = baseUrl + "/products/" + id;
         return this.restTemplate.getForObject(url, Product.class);
     }
 
     public Product[] getProductByName(String name) {
-        String url = "http://localhost:8091/products?name=" + name;
+        String url = baseUrl + "/products?name=" + name;
         return this.restTemplate.getForObject(url, Product[].class);
     }
 
     public Product[] getProductsByMarketId(Long id) {
-        String url = "http://localhost:8091/products?marketId=" + id;
+        String url = baseUrl + "/products?marketId=" + id;
         return this.restTemplate.getForObject(url, Product[].class);
     }
 
     public Product[] getProductsByMarketIdAndName(Long id, String name){
-        String url = "http://localhost:8091/markets/" + id + "/products?name=" + name;
+        String url = baseUrl+ "/markets/" + id + "/products?name=" + name;
         return this.restTemplate.getForObject(url, Product[].class);
     }
 }
