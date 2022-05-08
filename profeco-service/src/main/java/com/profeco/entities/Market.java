@@ -6,11 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "tbl_markets")
+@Table(name = "markets")
 @Data  @AllArgsConstructor  @NoArgsConstructor @Builder
-public class Market {
+public class Market implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,4 +19,5 @@ public class Market {
     private String rfc;
     @Column(name = "web_page")
     private String webPage;
+    private String image;
 }
