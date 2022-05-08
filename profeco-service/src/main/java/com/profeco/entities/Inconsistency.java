@@ -1,5 +1,6 @@
 package com.profeco.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,11 +43,13 @@ public class Inconsistency implements Serializable {
 //    @JoinColumn(name = "market_product_id", nullable = false)
 //    private MarketProduct marketProduct;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "market_id", nullable = false)
     private Market market;
 }

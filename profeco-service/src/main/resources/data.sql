@@ -3,9 +3,9 @@ insert into markets(id, name, rfc, image, web_page) values (1, 'Walmart',  'WALM
 insert into markets(id, name, rfc, image, web_page) values (2, 'Soriana',  'SORI420112PP1', 'http://localhost:8091/files/abc-market.png', 'http://soriana.com');
 
 delete from products;
-insert into products(id, name, description, image) values (1, 'pepsi', 'refresco copia de coca cola', 'http://localhost:8091/files/abc-product.png');
-insert into products(id, name, description, image) values (2, 'coca cola', 'refresco original', 'http://localhost:8091/files/abc-product.png');
-insert into products(id, name, description, image) values (3, 'big cola', 'refresco patito', 'http://localhost:8091/files/abc-product.png');
+insert into products(id, name, description, image, market_id) values (1, 'pepsi', 'refresco copia de coca cola', 'http://localhost:8091/files/abc-product.png', 1);
+insert into products(id, name, description, image, market_id) values (2, 'coca cola', 'refresco original', 'http://localhost:8091/files/abc-product.png', 1);
+insert into products(id, name, description, image, market_id) values (3, 'big cola', 'refresco patito', 'http://localhost:8091/files/abc-product.png', 1);
 
 --delete from rel_marketsproducts;
 --insert into rel_marketsproducts(marketproduct_id, market_id, product_id, price) values (1, 1, 1, 50.5);

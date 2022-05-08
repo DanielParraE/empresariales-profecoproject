@@ -1,5 +1,6 @@
 package com.profeco.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,4 +28,13 @@ public class Product implements Serializable {
 //    private List<MarketProduct> marketProductList;
 
     private String image;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "market_id", nullable = false)
+    private Market market;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "product")
+    private List<Inconsistency> inconsistencyList;
 }

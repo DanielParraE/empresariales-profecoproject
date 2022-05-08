@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/login.css}"/>
+    <title>Sign up</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main>
+
+    <section class="articles">
+
+        <article class="sellers">
+
+            <div class="card">
+                <div class="info">
+
+                    <form class="form-signin" method="post" action="/perform_login">
+                        <div th:if="${param.error}">
+                            <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+                        </div>
+
+                        <div th:if="${param.logout}">
+                            <p class="text-warning">You have been logged out</p>
+                        </div>
+
+                        <h2 class="form-signin-heading">Please sign in</h2>
+                        <div class="form-item">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Username" required autofocus>
+                        </div>
+                        <div class="form-item">
+                            <label for="password" class="sr-only">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <input class="btn-signin" type="submit" value="Sign in" />
+                    </form>
+
+                    <div class="google">
+                        <a class="btn-google" th:href="@{/oauth2/authorization/google}">Continue with Google</a>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+    </section>
+</main>
+</body>
+
+</html>

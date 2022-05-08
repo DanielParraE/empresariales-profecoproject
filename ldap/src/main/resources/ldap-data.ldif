@@ -14,10 +14,10 @@ objectclass: top
 objectclass: organizationalUnit
 ou: markets
 
-dn: ou=profecopersonal,dc=profeco,dc=org
+dn: ou=personal,dc=profeco,dc=org
 objectclass: top
 objectclass: organizationalUnit
-ou: profecopersonal
+ou: personal
 
 dn: uid=juan@gmail.com,ou=consumers,dc=profeco,dc=org
 objectclass: top
@@ -55,7 +55,7 @@ consumerId: 3
 authenticationType: Email
 userPassword: $2a$12$VSaT4reHhjFa/mmic96mf.SS06eJSaFwOh5ID6KVEccRU0IgCbLjW
 
-dn: uid=joe,ou=profecopersonal,dc=profeco,dc=org
+dn: uid=joe,ou=personal,dc=profeco,dc=org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
@@ -63,7 +63,7 @@ objectclass: inetOrgPerson
 cn: Joe Smeth
 sn: Smeth
 uid: joe
-personalId: 1
+profecoId: 1
 authenticationType: Email
 userPassword: $2y$10$hOe1zaBEevUV6nLvZ35qWuKp.pfGMEmxv/ixhcsmoD6gv/OXV1RoK
 

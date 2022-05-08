@@ -1,0 +1,17 @@
+.form-signin, .google {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.btn-signin {
+    background: #60b4df;
+    width: 100%;
+}
+
+.form-item {
+    margin: 10px 0;
+}
+
+.form-item input{
+    width: 100%;
+}
