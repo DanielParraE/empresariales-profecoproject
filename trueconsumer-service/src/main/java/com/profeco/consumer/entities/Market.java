@@ -30,7 +30,6 @@ public class Market {
     @Column(name = "web_page")
     private String webPage;
 
-    @Valid
     @JsonManagedReference(value = "market-address")
     @OneToMany(mappedBy = "branchOffice", cascade = CascadeType.ALL)
     private List<Address> addressList;
@@ -44,4 +43,6 @@ public class Market {
     //@JsonManagedReference(value = "market-marketproduct")
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
     private List<MarketProduct> marketProductList;
+
+    private String status;
 }

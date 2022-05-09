@@ -14,11 +14,6 @@ article {
     padding: 20px;
 }
 
-.card {
-    padding-bottom: .5rem;
-    border-bottom: 1px solid #dadada;
-}
-
 .item-name {
     margin: 15px 0 15px 0;
 }
@@ -45,7 +40,7 @@ article {
   float: left;
   width: 10%;
   padding: 10px;
-  background: #60b4df;
+  background: #D88600;
   color: white;
   font-size: 17px;
   border: 1px solid grey;
@@ -109,11 +104,7 @@ article {
 }
 
 .buy {
-    background: #60b4df;
-}
-
-.product-reviews {
-    background: #FFE22A;
+    background: #D88600;
 }
 
 .report{

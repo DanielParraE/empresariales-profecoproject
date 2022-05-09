@@ -31,14 +31,14 @@ consumerId: 1
 authenticationType: Email
 userPassword: $2a$12$gy5eYGEQv43Vr18cIRRO4uczK4T/9Xc70gjJW.QLmI6rwccTGSHJ2
 
-dn: uid=marisol@gmail.com,ou=consumers,dc=profeco,dc=org
+dn: uid=elon@gmail.com,ou=consumers,dc=profeco,dc=org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
 objectclass: inetOrgPerson
-cn: Marisol Briseño
-sn: Briseño
-uid: marisol@gmail.com
+cn: Elon Musk
+sn: Musk
+uid: elon@gmail.com
 consumerId: 2
 authenticationType: Email
 userPassword: $2a$12$JljDckCyzxZJN.PnHwRGCedbnu5XtKhq9FbEZsORGoyjwlVDDZu56

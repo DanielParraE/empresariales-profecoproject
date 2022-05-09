@@ -14,12 +14,23 @@
 <main>
 
     <section class="articles">
+        <article class="sellers">
+            <div class="card">
+
+                <div class="title">
+                    <h1>Market list</h1>
+                </div>
+                <form class="search" action="markets" method="GET">
+                    <input type="text" placeholder="Search.." id="name" name="name">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+            </div>
+        </article>
+
         <article class="sellers" th:each="market: ${marketList}">
             <div class="card">
                 <div class="info">
-                    <div class="title">
-                        <h1>Market details</h1>
-                    </div>
                     <div class="productName">
                         <img th:src="${market.image}" alt="" class="product-image">
                         <h1 th:text="${market.name }"/>
@@ -28,17 +39,19 @@
                         <h3>Product Info</h3>
                         <p th:text="${market.webPage }"/>
                     </div>
-                    <div class="buy-price" th:each="product: ${market.productList}">
-                        <a href="#">
-                            <h3 class="market" th:text="${product.name}"/>
-                        </a>
-                        <div class="price">
-                            <i class="fas fa-dollar-sign"></i>
-                            <h1 th:text="${#lists.size(product.inconsistencyList)}"/>
+
+                    <div th:each="product: ${market.productList}">
+                        <div class="buy-price" th:if="${#lists.size(product.inconsistencyList) > 0}">
+                            <div class="product">
+                                <img th:src="${product.image}" alt="" class="product-image">
+                                <span class="market" th:text="${product.name}"/>
+                            </div>
+                            <div class="price">
+                                <h1 th:text="${#lists.size(product.inconsistencyList) + ' reports'} "/>
+                            </div>
+                            <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Inconsistencies</a>
+                            <a href="#" class="report"><i class="fa fa-flag"></i>Penalize</a>
                         </div>
-                        <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Inconsistency list</a>
-                        <a href="#"
-                           class="report"><i class="fa fa-flag"></i>Penalize</a>
                     </div>
                 </div>
             </div>

@@ -2,8 +2,11 @@ package com.profeco.consumer.service.consumer;
 
 import com.profeco.consumer.entities.Consumer;
 import com.profeco.consumer.repositories.ConsumerRepository;
+import com.profeco.consumer.service.StorageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +16,9 @@ import java.util.List;
 public class DomainConsumerService implements ConsumerService {
 
     private final ConsumerRepository consumerRepository;
+
+    @Autowired
+    private StorageService storageService;
 
     @Override
     public List<Consumer> listAllConsumer() {
@@ -25,9 +31,15 @@ public class DomainConsumerService implements ConsumerService {
     }
 
     @Override
-    public Consumer createConsumer(Consumer consumer) {
+    public Consumer createConsumer(Consumer consumer, MultipartFile image) {
         Consumer consumerDB = consumerRepository.findByRfc(consumer.getRfc());
         if (consumerDB != null) return consumerDB;
+
+        String url =  (image == null)?
+                "http://localhost:8091/files/abc-person.png"
+                : storageService.store(image);
+
+        consumer.setImage(url);
 
         consumer.setStatus("CREATED");
         consumer.setCreatedAt(new Date());
@@ -35,14 +47,20 @@ public class DomainConsumerService implements ConsumerService {
     }
 
     @Override
-    public Consumer updateConsumer(Consumer consumer) {
+    public Consumer updateConsumer(Consumer consumer, MultipartFile image) {
         Consumer consumerDB = getConsumer(consumer.getId());
         if (consumerDB == null) {
             return null;
         }
+
+        String url =  (image == null)?
+                consumerDB.getImage()
+                : storageService.store(image);
+
+        consumerDB.setImage(url);
+
         consumerDB.setFullName(consumer.getFullName());
         consumerDB.setPhoneNumber(consumer.getPhoneNumber());
-        consumerDB.setImage(consumer.getImage());
         consumerDB.setRfc(consumer.getRfc());
         consumerDB.setSurname(consumer.getSurname());
         //consumerDB.setEmail(consumer.getEmail());

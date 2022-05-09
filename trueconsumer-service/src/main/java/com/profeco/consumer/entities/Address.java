@@ -1,6 +1,7 @@
 package com.profeco.consumer.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,8 +26,10 @@ public class Address {
     @NotEmpty(message = "street must not be empty")
     private String street;
 
-    @JoinColumn(name = "market_id", nullable = false)
+
     @JsonBackReference(value = "market-address")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "market_id", nullable = false)
     private Market branchOffice;
 }

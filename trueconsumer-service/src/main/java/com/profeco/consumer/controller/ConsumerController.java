@@ -27,9 +27,6 @@ public class ConsumerController {
     @Autowired
     private ConsumerService consumerService;
 
-    @Autowired
-    private StorageService storageService;
-
     @GetMapping
     public ResponseEntity<List<Consumer>> listConsumer() {
         List<Consumer> consumers = consumerService.listAllConsumer();
@@ -56,12 +53,7 @@ public class ConsumerController {
         if (result.hasErrors())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ErrorMessage.formatMessage(result));
 
-        String url =  (file == null)?
-                "http://localhost:8091/files/abc-person.png"
-                : storageService.store(file);
-
-        consumer.setImage(url);
-        Consumer consumerCreated = consumerService.createConsumer(consumer);
+        Consumer consumerCreated = consumerService.createConsumer(consumer, file);
         return ResponseEntity.status(HttpStatus.CREATED).body(consumerCreated);
     }
 
@@ -71,13 +63,7 @@ public class ConsumerController {
                                                    @RequestPart(required = false) MultipartFile file) {
         consumer.setId(id);
 
-        String url =  (file == null)?
-                "http://localhost:8091/files/abc-person.png"
-                : storageService.store(file);
-
-        consumer.setImage(url);
-
-        Consumer consumerDB = consumerService.updateConsumer(consumer);
+        Consumer consumerDB = consumerService.updateConsumer(consumer, file);
         if (consumerDB == null) {
             return ResponseEntity.notFound().build();
         }

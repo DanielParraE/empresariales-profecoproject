@@ -29,7 +29,7 @@
                         <div class="info">
                             <div class="item-name">
                                 <a th:href="@{${'http://localhost:8081/products/' + product.id }}">
-                                    <img th:src="@{${'http://localhost:8091/files/' + product.image }}" alt="" class="item-image" >
+                                    <img th:src="@{${ product.image }}" alt="" class="item-image" >
                                     <span th:text="${product.name}"/>
                                 </a>
                             </div>

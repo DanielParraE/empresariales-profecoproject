@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface MarketRepository extends JpaRepository<Market, Long> {
     public List<Market> findByNameContainsIgnoreCase(String name);
+    public Market findByRfc(String rfc);
 }

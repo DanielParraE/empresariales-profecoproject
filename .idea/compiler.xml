@@ -9,7 +9,6 @@
         </processorPath>
         <module name="profeco.profeco-service.main" />
         <module name="profeco.trueconsumer-service.main" />
-        <module name="profeco.truemarket-service.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />

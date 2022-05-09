@@ -17,10 +17,7 @@ public class MarketController {
     private MarketService marketService;
 
     @GetMapping(value = "/")
-    public  String getReviewProductPage(Authentication authentication, Model model){
-        // reemplazar por el id del usuario de la sesión
-        Market market = marketService.getMarket(1L);
-        model.addAttribute("market" , market);
+    public  String getReviewProductPage(){
         return "index";
     }
 }
