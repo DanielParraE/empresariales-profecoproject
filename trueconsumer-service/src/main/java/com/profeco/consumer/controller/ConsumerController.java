@@ -83,15 +83,4 @@ public class ConsumerController {
         }
         return ResponseEntity.ok("[ DELETED ]");
     }
-
-    @GetMapping(value = "/{id}/wishlists")
-    public ResponseEntity<Wishlist> findWishlistsByMarket(@PathVariable Long id, @RequestParam(required = true) Long marketId){
-
-        Wishlist wishlist = wishlistService.findByConsumerAndMarket(id, marketId);
-
-        if (wishlist == null)
-            return ResponseEntity.noContent().build();
-
-        return ResponseEntity.ok(wishlist);
-    }
 }

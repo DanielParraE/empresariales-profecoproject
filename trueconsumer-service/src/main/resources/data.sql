@@ -44,10 +44,9 @@ insert into inconsistencies(id, real_price, published_price, evidence, descripti
 
 DELETE FROM wishlists;
 
-insert into wishlists(id, consumer_id, market_id) values (1, 1, 1);
-insert into wishlists(id, consumer_id, market_id) values (2, 1, 2);
+insert into wishlists(id, consumer_id, market_id) values (1, 3, 1);
+insert into wishlists(id, consumer_id, market_id) values (2, 3, 2);
 
 insert into wishlist_items(id, wishlist_id, product_id) values (1, 1, 1);
-insert into wishlist_items(id, wishlist_id, product_id) values (2, 1, 2);
-insert into wishlist_items(id, wishlist_id, product_id) values (3, 1, 3);
-insert into wishlist_items(id, wishlist_id, product_id) values (4, 2, 1);
+insert into wishlist_items(id, wishlist_id, product_id) values (2, 2, 1);
+insert into wishlist_items(id, wishlist_id, product_id) values (3, 2, 2);

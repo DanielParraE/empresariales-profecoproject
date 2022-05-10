@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/market-details.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/item.css}"/>
+    <title>Wishlists</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main>
+
+    <section class="articles">
+
+        <article class="sellers">
+            <div class="card">
+                <div class="info">
+                    <div class="title">
+                        <h1>Wishlists</h1>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="sellers" th:each="wishlist: ${wishlists}">
+            <div class="card">
+                <div class="info">
+                    <div class="market-name">
+                        <img th:src="${wishlist.market.image}" alt="" class="product-image">
+                        <span th:text="${wishlist.market.name }" class="market-name"/>
+                        <a href="#" class="btn-penalize"><i class="fa fa-flag"></i>Delete</a>
+                    </div>
+
+                    <div class="products">
+                        <div th:each="item: ${wishlist.items}">
+                            <div class="buy-price">
+                                <div class="product">
+                                    <img th:src="${item.product.image}" alt="" class="product-image">
+                                    <span class="product-name" th:text="${item.product.name}"/>
+                                </div>
+                                <a href="#" class="report"><i class="fas fa-flag"></i>Remove item</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+</body>
+
+</html>
