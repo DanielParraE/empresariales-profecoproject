@@ -21,7 +21,7 @@ label {
     margin: 45px 0;
 }
 
-.button input, .google {
+.button input {
     height: 100%;
     width: 100%;
     font-size: 1.5rem;

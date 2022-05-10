@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.authorizeRequests().antMatchers("/console/**").permitAll();
         //http.headers().frameOptions().disable();
         http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Override

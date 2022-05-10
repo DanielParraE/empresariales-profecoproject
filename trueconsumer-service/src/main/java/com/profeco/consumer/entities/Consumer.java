@@ -53,7 +53,8 @@ public class Consumer {
     private List<Review> reviewList;
 
     @Valid
-    @JsonManagedReference(value = "consumer-wishlist")
+    @JsonIgnore
+    //@JsonManagedReference(value = "consumer-wishlist")
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Wishlist> wishlists;
 

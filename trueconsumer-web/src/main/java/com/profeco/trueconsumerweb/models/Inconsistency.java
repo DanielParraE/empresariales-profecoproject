@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,5 +20,5 @@ public class Inconsistency  implements Serializable {
     private String evidence;
     private Date purchasedAt;
     private Consumer author;
-    private MarketProduct product;
+    private MarketProduct marketProduct;
 }

@@ -1,13 +1,8 @@
 package com.profeco.consumer.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.profeco.consumer.dto.CategoryDTO;
-import com.profeco.consumer.dto.MarketDTO;
-import com.profeco.consumer.dto.MarketProductDTO;
-import com.profeco.consumer.dto.ProductDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,35 +37,13 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<MarketProduct> marketProductList;
 
+    @JsonIgnore
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //@JsonManagedReference(value = "item-wishlist")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<WishlistItem> wishlistItems;
+
     private String image;
 
     private String status;
-
-    public ProductDTO toDTO(){
-        List<MarketProductDTO> marketProductDTOList = new ArrayList<>();
-        if (!this.getMarketProductList().isEmpty()){
-          for (MarketProduct marketProduct: marketProductList){
-              MarketProductDTO.builder()
-                      .id(marketProduct.getMarket().getId())
-                      .price(marketProduct.getPrice())
-                      .market(MarketDTO.builder()
-                              .id(marketProduct.getMarket().getId())
-                              .name(marketProduct.getMarket().getName())
-                              .image(marketProduct.getMarket().getImage())
-                              .rfc(marketProduct.getMarket().getRfc())
-                              .build())
-                      .build();
-          }
-        }
-
-        return ProductDTO.builder()
-                .name(name)
-                .description(description)
-                .category(CategoryDTO.builder()
-                        .name(category.getName()).build())
-                .image(image)
-                .status(status)
-                .marketProductList(marketProductDTOList)
-                .build();
-    }
 }

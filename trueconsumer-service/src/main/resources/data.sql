@@ -1,7 +1,7 @@
 DELETE FROM consumers;
 
 INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (1, 'Juan Perez', 'JULM8305281A9', '6449879878', 'juan@gmail.com', 'http://localhost:8091/files/12345678-bill-gates.jpg','Perez', '2019-09-05', 'CREATED');
-INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (2, 'Elon musk', 'MALM8305281A9', '6559873216', 'elon@gmail.com', 'http://localhost:8091/files/12345678-elon-musk.jpg', 'Briseño', '2019-09-05', 'CREATED');
+INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (2, 'Elon musk', 'MALM8305281A9', '6559873216', 'elon@gmail.com', 'http://localhost:8091/files/12345678-elon-musk.jpg', 'Musk', '2019-09-05', 'CREATED');
 INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (3, 'Ben Juarez', 'BELM8305281A9', '6777419638', 'ben@gmail.com', 'http://localhost:8091/files/12345678-steve-jobs.jpg', 'Juarez', '2019-09-05', 'CREATED');
 
 delete from markets;
@@ -39,5 +39,15 @@ insert into market_review(id, market_id, comment, rating, consumer_id, created_a
 
 DELETE FROM inconsistencies;
 
-insert into inconsistencies(id, real_price, published_price, evidence, description, purchased_at, consumer_id, market_product_id) values (1, 100, 50, 'evidencia', 'Me negaron el precio que decia ahi porque se supone que estaba mal.','2018-09-05',1, 1);
-insert into inconsistencies(id, real_price, published_price, evidence, description, purchased_at, consumer_id, market_product_id) values (2, 200, 50, 'evidencia', 'valia el doble de lo publicado','2019-09-05',2, 2);
+insert into inconsistencies(id, real_price, published_price, evidence, description, purchased_at, consumer_id, market_product_id) values (1, 100, 50, '', 'Me negaron el precio que decia ahi porque se supone que estaba mal.','2018-09-05',1, 1);
+insert into inconsistencies(id, real_price, published_price, evidence, description, purchased_at, consumer_id, market_product_id) values (2, 200, 50, '', 'valia el doble de lo publicado','2019-09-05',2, 2);
+
+DELETE FROM wishlists;
+
+insert into wishlists(id, consumer_id, market_id) values (1, 1, 1);
+insert into wishlists(id, consumer_id, market_id) values (2, 1, 2);
+
+insert into wishlist_items(id, wishlist_id, product_id) values (1, 1, 1);
+insert into wishlist_items(id, wishlist_id, product_id) values (2, 1, 2);
+insert into wishlist_items(id, wishlist_id, product_id) values (3, 1, 3);
+insert into wishlist_items(id, wishlist_id, product_id) values (4, 2, 1);

@@ -25,5 +25,5 @@ public class Market implements Serializable {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "market")
-    private List<Product> productList;
+    private List<MarketProduct> marketProductList;
 }

@@ -1,6 +1,7 @@
 package com.profeco.consumer.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.util.List;
 
 @Entity
@@ -19,13 +19,19 @@ public class Wishlist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonBackReference(value = "consumer-wishlist")
+    //@JsonBackReference(value = "consumer-wishlist")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "consumer_id")
     private Consumer creator;
 
-    @JsonManagedReference(value = "wishlist-wishlistproduct")
+    @JsonManagedReference(value = "wishlist-items")
     @OneToMany(mappedBy = "wishlist", cascade = CascadeType.ALL)
-    private List<WishlistProduct> wishlistProducts;
+    private List<WishlistItem> items;
+
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "market_id")
+    private Market market;
 
 }

@@ -3,6 +3,7 @@ package com.profeco.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,15 +26,19 @@ public class MarketProduct implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonBackReference
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "market_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "market_id")
     private Market market;
 
-//    @JsonBackReference
-//    @ManyToOne
-//    @JoinColumn(name = "product_id", nullable = false)
-//    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "marketProduct")
+    private List<Inconsistency> inconsistencies;
 
     private float price;
 }

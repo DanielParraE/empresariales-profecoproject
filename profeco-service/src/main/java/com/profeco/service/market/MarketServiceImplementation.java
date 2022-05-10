@@ -1,4 +1,4 @@
-package com.profeco.service;
+package com.profeco.service.market;
 
 import com.profeco.entities.Market;
 import com.profeco.repositories.MarketRepository;

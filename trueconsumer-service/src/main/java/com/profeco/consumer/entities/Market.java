@@ -44,5 +44,11 @@ public class Market {
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
     private List<MarketProduct> marketProductList;
 
+    @JsonIgnore
+    //@JsonManagedReference(value = "market-marketproduct")
+    @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
+    private List<Wishlist> wishlists;
+
+
     private String status;
 }

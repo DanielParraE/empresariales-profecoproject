@@ -36,12 +36,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.authorizeRequests().antMatchers("/console/**").permitAll();
         //http.headers().frameOptions().disable();
         http.csrf().disable();
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring()
-                .antMatchers("/h2-console/**");
+        http.headers().frameOptions().disable();
     }
 }

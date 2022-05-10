@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="button">
-                            <input type="button" value="Send report" onclick="send()">
+                            <input type="button" class="clickable" value="Send report" onclick="send()">
                         </div>
                     </form>
                 </div>
@@ -84,7 +84,7 @@
     /*<![CDATA[*/
 
 
-        async function send(){
+        function send(){
             var inconsistencyForm = [[${inconsistency}]];
 
             inconsistencyForm.realPrice = document.getElementById('realPrice').value;
@@ -107,7 +107,7 @@
             }
             inconsistencyForm.purchasedAt = date;
 
-            inconsistencyForm.product = {
+            inconsistencyForm.marketProduct = {
                 "id": [[${marketProductId}]]
             }
 
@@ -121,18 +121,18 @@
 
             data.append("inconsistency", blob);
 
-            await fetch( [[${@environment.getProperty('frontend.url')}]] + '/inconsistencies/', {
+            fetch( [[${@environment.getProperty('frontend.url')}]] + '/inconsistencies/', {
               method: 'POST',
               body: data,
-            })
-
-            await Swal.fire({
-              icon: 'success',
-              title: 'Success',
-              text: 'Your info is saved',
-              timer: 5000
-            })
-            window.location.href = 'http://localhost:8081'
+            }).then(function(response){
+                 Swal.fire({
+                      icon: 'success',
+                      title: 'Success',
+                      text: 'Your info is saved'
+                 }).then(function(res){
+                    window.location.href = 'http://localhost:8081'
+                 })
+            }).catch(error => console.log(error))
         }
 
         function showAlert(message){

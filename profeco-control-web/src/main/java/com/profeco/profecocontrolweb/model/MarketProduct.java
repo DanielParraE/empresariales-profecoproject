@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,6 +18,10 @@ public class MarketProduct implements Serializable {
     private Long id;
 
     private Market market;
+
+    private Product product;
+
+    private List<Inconsistency> inconsistencies;
 
     private float price;
 }

@@ -1,4 +1,4 @@
-package com.profeco.service;
+package com.profeco.service.inconsistency;
 
 import com.profeco.entities.Inconsistency;
 import com.profeco.repositories.InconsistencyRepository;

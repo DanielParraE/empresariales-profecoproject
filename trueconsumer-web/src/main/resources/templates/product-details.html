@@ -38,7 +38,7 @@
                             <h1 th:text="${marketProduct.price}"/>
                         </div>
                         <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Add to wishlist</a>
-                        <a th:href="@{${@environment.getProperty('frontend.url') + '/markets/' + marketProduct.market.id + '/products/' + product.id + '/inconsistencies/'}}"
+                        <a th:href="@{${@environment.getProperty('frontend.url') + '/report?marketId=' + marketProduct.market.id + '&productId=' + product.id }}"
                            class="report"><i class="fa fa-flag"></i>Report product</a>
                     </div>
                 </div>

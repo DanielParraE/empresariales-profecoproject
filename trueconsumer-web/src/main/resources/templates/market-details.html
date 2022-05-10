@@ -52,16 +52,16 @@
                         <p class="text" th:text="${product.description}" />
                     </div>
                     <div th:each="marketProduct: ${product.marketProductList}">
-                        <div class="buy-price" th:if="${marketProduct.market.id == 1}">
+                        <div class="buy-price" th:if="${marketProduct.market.id == market.id}">
                             <div class="price">
                                 <i class="fas fa-dollar-sign"></i>
                                 <h1 th:text="${marketProduct.price}"/>
                             </div>
 
-                            <a th:href="@{${@environment.getProperty('frontend.url') + '/markets/' + marketProduct.market.id + '/products/' + product.id + '/reviews/'}}"
+                            <a th:href="@{${@environment.getProperty('frontend.url') + '/markets/' + market.id + '/products/' + product.id + '/reviews/'}}"
                                class="buy"><i class="far fa-star"></i>Reviews</a>
                             <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Add to wishlist</a>
-                            <a th:href="@{${@environment.getProperty('frontend.url') + '/markets/' + marketProduct.market.id + '/products/' + product.id + '/inconsistencies/'}}"
+                            <a th:href="@{${@environment.getProperty('frontend.url') + '/report?marketId=' + market.id + '&productId=' + product.id }}"
                                class="report"><i class="fa fa-flag"></i>Report product</a>
 
                         </div>

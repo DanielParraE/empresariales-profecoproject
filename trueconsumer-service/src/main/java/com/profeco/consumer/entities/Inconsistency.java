@@ -2,6 +2,7 @@ package com.profeco.consumer.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.profeco.consumer.dto.InconsistencyDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -46,5 +47,18 @@ public class Inconsistency {
     @JsonBackReference(value = "market-product-inconsistency")
     @ManyToOne
     @JoinColumn(name = "market_product_id", nullable = false)
-    private MarketProduct product;
+    private MarketProduct marketProduct;
+
+    public InconsistencyDTO convertToDTO(){
+        return InconsistencyDTO.builder()
+                .id(id)
+                .realPrice(realPrice)
+                .publishedPrice(publishedPrice)
+                .description(description)
+                .consumerId(author.getId())
+                .evidence(evidence)
+                .purchasedAt(purchasedAt)
+                .marketProductId(marketProduct.getId())
+                .build();
+    }
 }

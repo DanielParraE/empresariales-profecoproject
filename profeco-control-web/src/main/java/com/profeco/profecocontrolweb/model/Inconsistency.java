@@ -26,7 +26,5 @@ public class Inconsistency implements Serializable {
 
     private Long consumerId;
 
-    private Product product;
-
-    private Market market;
+    private MarketProduct marketProduct;
 }

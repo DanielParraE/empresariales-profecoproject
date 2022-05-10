@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
-    <link type="text/css" rel="stylesheet" th:href="@{/css/product-details.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/market-details.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{/css/item.css}"/>
     <title>Inconsistency list</title>
 </head>
@@ -31,26 +31,24 @@
         <article class="sellers" th:each="market: ${marketList}">
             <div class="card">
                 <div class="info">
-                    <div class="productName">
+                    <div class="market-name">
                         <img th:src="${market.image}" alt="" class="product-image">
-                        <h1 th:text="${market.name }"/>
-                    </div>
-                    <div class="description">
-                        <h3>Product Info</h3>
-                        <p th:text="${market.webPage }"/>
+                        <span th:text="${market.name }" class="market-name"/>
+                        <a href="#" class="btn-penalize"><i class="fa fa-flag"></i>Penalize</a>
                     </div>
 
-                    <div th:each="product: ${market.productList}">
-                        <div class="buy-price" th:if="${#lists.size(product.inconsistencyList) > 0}">
-                            <div class="product">
-                                <img th:src="${product.image}" alt="" class="product-image">
-                                <span class="market" th:text="${product.name}"/>
+                    <div class="products">
+                        <div th:each="marketProduct: ${market.marketProductList}">
+                            <div class="buy-price" th:if="${#lists.size(marketProduct.inconsistencies) > 0}">
+                                <div class="product">
+                                    <img th:src="${marketProduct.product.image}" alt="" class="product-image">
+                                    <span class="product-name" th:text="${marketProduct.product.name}"/>
+                                </div>
+                                <div class="price">
+                                    <h1 th:text="${#lists.size(marketProduct.inconsistencies) + ' reports'} "/>
+                                </div>
+                                <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Inconsistencies</a>
                             </div>
-                            <div class="price">
-                                <h1 th:text="${#lists.size(product.inconsistencyList) + ' reports'} "/>
-                            </div>
-                            <a href="#" class="buy"><i class="fas fa-shopping-cart"></i>Inconsistencies</a>
-                            <a href="#" class="report"><i class="fa fa-flag"></i>Penalize</a>
                         </div>
                     </div>
                 </div>

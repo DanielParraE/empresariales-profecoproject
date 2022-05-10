@@ -39,5 +39,10 @@ public class DomainProductService implements ProductService{
         return productRepository.findByMarketProductListMarketAndNameContainingIgnoreCase(market, name);
     }
 
+    @Override
+    public Product getProductByMarketProduct(Long id) {
+        return productRepository.findByMarketProductListId(id);
+    }
+
 
 }

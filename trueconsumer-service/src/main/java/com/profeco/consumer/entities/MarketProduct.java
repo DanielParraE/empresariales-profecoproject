@@ -1,20 +1,16 @@
 package com.profeco.consumer.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.extern.java.Log;
 
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
-import javax.validation.metadata.ValidateUnwrappedValue;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 @Entity
@@ -30,13 +26,13 @@ public class MarketProduct {
 
     //@JsonBackReference(value = "market-marketproduct")
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "market_id", nullable = false)
     private Market market;
 
     @JsonBackReference(value = "product-marketproduct")
     //@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
@@ -44,12 +40,8 @@ public class MarketProduct {
     @OneToMany(mappedBy = "marketProduct", cascade = CascadeType.ALL)
     private List<ProductReview> reviews;
 
-    @JsonManagedReference(value = "market-product-wishlist-product")
-    @OneToMany(mappedBy = "marketProduct", cascade = CascadeType.ALL)
-    private List<WishlistProduct> wishlistProducts;
-
     @JsonManagedReference(value = "market-product-inconsistency")
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "marketProduct", cascade = CascadeType.ALL)
     private List<Inconsistency> inconsistencies;
 
     @Positive(message = "price must be > 0")

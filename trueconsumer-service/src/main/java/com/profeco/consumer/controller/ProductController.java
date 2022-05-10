@@ -1,20 +1,13 @@
 package com.profeco.consumer.controller;
 
-import com.profeco.consumer.dto.ProductDTO;
 import com.profeco.consumer.entities.Market;
-import com.profeco.consumer.entities.MarketProduct;
 import com.profeco.consumer.entities.Product;
 import com.profeco.consumer.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.PushBuilder;
-import java.awt.font.FontRenderContext;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "products")

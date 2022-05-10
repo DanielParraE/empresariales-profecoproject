@@ -1,8 +1,15 @@
 package com.profeco.consumer.controller;
 
+import com.profeco.consumer.MQConfig;
+import com.profeco.consumer.dto.InconsistencyDTO;
+import com.profeco.consumer.entities.Market;
+import com.profeco.consumer.entities.MarketProduct;
+import com.profeco.consumer.entities.Product;
 import com.profeco.consumer.service.StorageService;
 import com.profeco.consumer.service.inconsistency.InconsistencyService;
 import com.profeco.consumer.entities.Inconsistency;
+import com.profeco.consumer.service.product.ProductService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/inconsistencies")
@@ -23,7 +31,13 @@ public class InconsistencyController {
     private InconsistencyService inconsistencyService;
 
     @Autowired
+    private ProductService productService;
+
+    @Autowired
     private StorageService storageService;
+
+    @Autowired
+    private RabbitTemplate template;
 
     @GetMapping
     public ResponseEntity<List<Inconsistency>> listComplain() {
@@ -59,6 +73,27 @@ public class InconsistencyController {
                 : storageService.store(file);
         inconsistency.setEvidence(url);
         Inconsistency inconsistencyCreate = inconsistencyService.createComplain(inconsistency);
+
+//        InconsistencyDTO dto = InconsistencyDTO.builder()
+//                                    .id(inconsistencyCreate.getId())
+//                                    .realPrice(inconsistencyCreate.getRealPrice())
+//                                    .publishedPrice(inconsistencyCreate.getPublishedPrice())
+//                                    .description(inconsistencyCreate.getDescription())
+//                                    .consumerId(inconsistencyCreate.getAuthor().getId())
+//                                    .evidence(inconsistencyCreate.getEvidence())
+//                                    .purchasedAt(inconsistencyCreate.getPurchasedAt())
+//                                    .marketId(inconsistency.getProduct().get)
+//                                    .productId(inconsistencyCreate.getProduct().getProduct().getId())
+//                                    .build();
+        Product product = productService.getProductByMarketProduct(inconsistencyCreate.getMarketProduct().getId());
+        Optional<MarketProduct> market = product.getMarketProductList()
+                .stream()
+                .filter(marketProduct -> marketProduct.getId() == inconsistency.getMarketProduct().getId()).findFirst();
+        inconsistencyCreate.setMarketProduct(market.get());
+
+        // send to broker
+        template.convertAndSend(MQConfig.EXCHANGE, MQConfig.NEW_INCONSISTENCY_ROUTING_KEY, inconsistencyCreate.convertToDTO());
+
         return ResponseEntity.status(HttpStatus.CREATED).body(inconsistencyCreate);
     }
 

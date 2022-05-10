@@ -39,17 +39,8 @@ public class Inconsistency implements Serializable {
     @Column(name = "consumer_id", nullable = false)
     private Long consumerId;
 
-//    @ManyToOne
-//    @JoinColumn(name = "market_product_id", nullable = false)
-//    private MarketProduct marketProduct;
-
     @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "market_id", nullable = false)
-    private Market market;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "market_product_id", nullable = false)
+    private MarketProduct marketProduct;
 }

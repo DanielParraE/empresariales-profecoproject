@@ -1,7 +1,7 @@
 package com.profeco.controller;
 
 import com.profeco.entities.Market;
-import com.profeco.service.MarketService;
+import com.profeco.service.market.MarketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

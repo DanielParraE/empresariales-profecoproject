@@ -136,3 +136,7 @@ article {
 .nav-link:hover > a{
     transform: scale(1.1);
 }
+
+.clickable {
+    cursor: pointer;
+}

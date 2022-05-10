@@ -39,3 +39,23 @@
     outline: none;
     background: #60b4df;
 }
+
+.market-name {
+    margin: 15px 0 15px 0;
+    align-elements: center;
+      align-items: center;
+      display: flex;
+}
+
+.market-name{
+    flex: 1;
+}
+
+.market-name span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-penalize {
+    float: right;
+}

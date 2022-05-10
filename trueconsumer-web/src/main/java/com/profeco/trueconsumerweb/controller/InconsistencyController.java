@@ -34,9 +34,9 @@ public class InconsistencyController {
     @Autowired
     private PersonRepository personRepository;
 
-    @GetMapping(value = "/markets/{marketId}/products/{productId}/inconsistencies")
-    public String postInconsistency(@PathVariable(value = "productId", required = true) Long productId,
-                                          @PathVariable(value = "marketId", required = true) Long marketId,
+    @GetMapping(value = "/report")
+    public String postInconsistency(@RequestParam(value = "productId", required = true) Long productId,
+                                          @RequestParam(value = "marketId", required = true) Long marketId,
                                           Model model){
         Product product = productService.getProductAsObject(productId);
         Optional<MarketProduct> market = product.getMarketProductList()

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.yaml.snakeyaml.error.Mark;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,5 +16,5 @@ public class Market implements Serializable {
     private String rfc;
     private String webPage;
     private String image;
-    private List<Product> productList;
+    private List<MarketProduct> marketProductList;
 }

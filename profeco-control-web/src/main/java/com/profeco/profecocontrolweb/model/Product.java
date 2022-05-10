@@ -18,5 +18,5 @@ public class Product implements Serializable {
 
     private String image;
 
-    private List<Inconsistency> inconsistencyList;
+    private List<MarketProduct> marketProductList;
 }
