@@ -19,7 +19,7 @@ public class WishlistController {
 
     @GetMapping
     public ResponseEntity<List<Wishlist>> findWishlists(@RequestParam(required = false) Long marketId,
-                                        @RequestParam(required = false) Long consumerId){
+                                                        @RequestParam(required = false) Long consumerId){
 
         List<Wishlist> wishlistList;
         if (marketId == null && consumerId == null)

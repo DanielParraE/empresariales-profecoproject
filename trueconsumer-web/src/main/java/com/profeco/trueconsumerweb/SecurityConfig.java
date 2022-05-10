@@ -55,10 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .successHandler(oAuth2LoginSuccessHandler)
                 .and()
                 .logout()
-                .logoutUrl("/logout")
-                    .logoutSuccessUrl("/")
-                    .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID");
+                .logoutUrl("/logout");
 
         http.csrf().disable();
     }

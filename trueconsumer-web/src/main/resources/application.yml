@@ -1,7 +1,10 @@
 #Application Configuration
 server:
   port: 8081
-
+  servlet:
+    session:
+      cookie:
+        name: CONSUMER_SESSION_ID
 spring:
   thymeleaf: # Thymeleaf
     cache: false

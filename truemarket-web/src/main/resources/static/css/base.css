@@ -8,7 +8,6 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
     background-color: #e6e6e6;
 }
 
@@ -21,14 +20,14 @@ a{
 }
 
 header{
-    background-color: #016400;
+    background: #016400;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 section{
     position: relative;
-    height: calc(100vh - 3rem);
+    height: 100%;
     overflow: hidden;
 }
 
@@ -44,7 +43,7 @@ article {
 }
 
 .container{
-    max-width: 90%;
+    max-width: 95%;
     padding: 0 2rem;
     margin: 0 auto;
     display: flex;
@@ -136,4 +135,8 @@ article {
 
 .nav-link:hover > a{
     transform: scale(1.1);
+}
+
+.clickable {
+    cursor: pointer;
 }

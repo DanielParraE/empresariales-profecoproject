@@ -16,8 +16,4 @@ public class MarketController {
     @Autowired
     private MarketService marketService;
 
-    @GetMapping(value = "/")
-    public  String getReviewProductPage(){
-        return "index";
-    }
 }

@@ -55,14 +55,14 @@ consumerId: 3
 authenticationType: Email
 userPassword: $2a$12$VSaT4reHhjFa/mmic96mf.SS06eJSaFwOh5ID6KVEccRU0IgCbLjW
 
-dn: uid=joe,ou=personal,dc=profeco,dc=org
+dn: uid=joe@gmail.com,ou=personal,dc=profeco,dc=org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
 objectclass: inetOrgPerson
 cn: Joe Smeth
 sn: Smeth
-uid: joe
+uid: joe@gmail.com
 profecoId: 1
 authenticationType: Email
 userPassword: $2y$10$hOe1zaBEevUV6nLvZ35qWuKp.pfGMEmxv/ixhcsmoD6gv/OXV1RoK

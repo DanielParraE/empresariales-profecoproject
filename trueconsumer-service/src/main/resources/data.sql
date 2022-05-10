@@ -5,8 +5,8 @@ INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, 
 INSERT INTO consumers (id, full_name, rfc, phone_number, email, image, surname, created_at, status) VALUES (3, 'Ben Juarez', 'BELM8305281A9', '6777419638', 'ben@gmail.com', 'http://localhost:8091/files/12345678-steve-jobs.jpg', 'Juarez', '2019-09-05', 'CREATED');
 
 delete from markets;
-insert into markets(id, name, rfc, image, web_page) values (1, 'Walmart',  'WALM420112PP1', 'http://localhost:8091/files/walmart.jpg', 'http://walmart.com');
-insert into markets(id, name, rfc, image, web_page) values (2, 'Soriana',  'SORI420112PP1', 'http://localhost:8091/files/soriana.png', 'http://soriana.com');
+insert into markets(id, name, rfc, image, web_page, email, corp_type) values (1, 'Walmart',  'WALM420112PP1', 'http://localhost:8091/files/walmart.jpg', 'http://walmart.com', 'walmart@gmail.com', 'S.A de C.V');
+insert into markets(id, name, rfc, image, web_page, email, corp_type) values (2, 'Soriana',  'SORI420112PP1', 'http://localhost:8091/files/soriana.png', 'http://soriana.com', 'soriana@gmail.com', 'Inc');
 
 delete from addresses;
 insert into addresses(id, post_code, city, street, market_id) values(1, '85900', 'Obregón', 'calle 200', 1);

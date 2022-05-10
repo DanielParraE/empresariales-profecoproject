@@ -37,8 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                //.antMatchers("/js/**", "/css/**", "/img/**", "/", "/markets/**", "/products/**", "/signup", "/consumers/**").permitAll()
-                .anyRequest().permitAll()
+                .antMatchers("/js/**", "/css/**", "/img/**", "/signup", "/login").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
@@ -55,10 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .successHandler(oAuth2LoginSuccessHandler)
                 .and()
                 .logout()
-                .logoutUrl("/logout")
-                    .logoutSuccessUrl("/")
-                    .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID");
+                .logoutUrl("/logout");
 
         http.csrf().disable();
     }

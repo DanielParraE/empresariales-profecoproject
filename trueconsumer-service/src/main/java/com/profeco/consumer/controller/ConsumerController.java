@@ -2,8 +2,10 @@ package com.profeco.consumer.controller;
 
 import com.profeco.consumer.dto.FileUploadResponse;
 import com.profeco.consumer.entities.Consumer;
+import com.profeco.consumer.entities.Wishlist;
 import com.profeco.consumer.service.StorageService;
 import com.profeco.consumer.service.consumer.ConsumerService;
+import com.profeco.consumer.service.wishlist.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,6 +28,9 @@ public class ConsumerController {
 
     @Autowired
     private ConsumerService consumerService;
+
+    @Autowired
+    private WishlistService wishlistService;
 
     @GetMapping
     public ResponseEntity<List<Consumer>> listConsumer() {
@@ -79,4 +84,14 @@ public class ConsumerController {
         return ResponseEntity.ok("[ DELETED ]");
     }
 
+    @GetMapping(value = "/{id}/wishlists")
+    public ResponseEntity<Wishlist> findWishlistsByMarket(@PathVariable Long id, @RequestParam(required = true) Long marketId){
+
+        Wishlist wishlist = wishlistService.findByConsumerAndMarket(id, marketId);
+
+        if (wishlist == null)
+            return ResponseEntity.noContent().build();
+
+        return ResponseEntity.ok(wishlist);
+    }
 }

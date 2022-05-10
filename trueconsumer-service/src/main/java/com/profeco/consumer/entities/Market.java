@@ -26,6 +26,10 @@ public class Market {
     private String name;
     private String rfc;
     private String image;
+    private String email;
+
+    @Column(name = "corp_type")
+    private String corpType;
 
     @Column(name = "web_page")
     private String webPage;

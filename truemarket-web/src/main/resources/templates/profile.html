@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/signup.css}"/>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Profile</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main>
+
+    <section class="articles">
+        <article class="sellers">
+            <div class="card">
+                <div class="info">
+                    <div class="title">
+                        <h1>Profile</h1>
+                    </div>
+
+                    <div th:if="${param.success}">
+                        <p class="">Your info has been updated!!</p>
+                    </div>
+<!--                    <form class="form" action="#" th:action="@{'/consumers/edit' }" th:object="${consumer}" method="post" enctype="multipart/form-data">-->
+                        <form class="form" th:object="${consumer}">
+                        <div class="form-details">
+                            <div class="form-item">
+                                <label for="email">Email: </label>
+                                <input type="email" id="email" name="email" required th:field="*{email}" readonly/>
+                            </div>
+
+                            <div class="form-item" th:if="${isAuthenticatedByEmail}">
+                                <label for="password">Password: </label>
+                                <input type="password" id="password" th:field="*{password}" required>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="file">Image: </label>
+                                <input type="file" id="file" name="file">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="phone">Phone: </label>
+                                <input type="text" id="phone" th:field="*{phoneNumber}" required>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="rfc">RFC: </label>
+                                <input id="rfc" type="text" th:field="*{rfc}" required>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="name">Name: </label>
+                                <input type="text" id="name" th:field="*{fullName}" required>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="surname">Surname: </label>
+                                <input type="text" id="surname" th:field="*{surname}" required>
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <input type="button" class="clickable" value="Update info" onclick="send()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </article>
+
+    </section>
+</main>
+
+    <script th:inline="javascript">
+    /*<![CDATA[*/
+
+
+        async function send(){
+            var consumerForm = [[${consumer}]];
+
+            var phone = document.getElementById('phone').value;
+
+            if (phone == ""){
+                showAlert("phone must no be empty!!")
+                return
+            }
+
+            consumerForm.phoneNumber = phone;
+
+            var rfc = document.getElementById('rfc').value;
+
+            if (rfc == ""){
+                showAlert("rfc must no be empty!!")
+                return
+            }
+            consumerForm.rfc = rfc;
+
+            var fullName = document.getElementById('name').value;
+
+            if (fullName == ""){
+                showAlert("full name must no be empty!!")
+                return
+            }
+            consumerForm.fullName = fullName;
+
+            var surname = document.getElementById('surname').value;
+            if (surname == ""){
+                showAlert("Surname must no be empty!!")
+                return
+            }
+            consumerForm.surname = surname;
+
+            var pass = document.getElementById('password');
+
+            if (pass && pass.value === ""){
+                showAlert("password must no be empty!!");
+                return;
+            }
+            consumerForm.password =  pass? pass.value : "";
+
+            var fileForm = document.getElementById('file');
+
+            const json = JSON.stringify(consumerForm);
+
+            const blob = new Blob([json], {
+              type: 'application/json'
+            });
+
+            const data = new FormData();
+
+            data.append("consumer", blob);
+
+            var url = [[${@environment.getProperty('frontend.url')}]] + '/consumers/' + consumerForm.id
+            await fetch(url, {
+              method: 'POST',
+              body: data,
+            })
+
+            await Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Your info is saved',
+              timer: 5000
+            })
+            window.location.href = 'profile?success=true'
+        }
+
+        function showAlert(message){
+            Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: message
+            })
+        }
+
+    /*]]>*/
+    </script>
+</body>
+
+</html>

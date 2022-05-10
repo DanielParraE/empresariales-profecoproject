@@ -1,6 +1,10 @@
 #Application Configuration
 server:
   port: 8083
+  servlet:
+    session:
+      cookie:
+        name: PROFECO_SESSION_ID
 
 spring:
   thymeleaf: # Thymeleaf

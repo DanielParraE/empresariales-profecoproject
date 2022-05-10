@@ -2,18 +2,26 @@ package com.profeco.truemarketweb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Market implements Serializable {
-    private int id;
+    private Long id;
     private String name;
+    private String email;
+    private String rfc;
+    private String corpType;
     private String webPage;
     private String image;
+    private String  password;
     private List<MarketReview> reviews;
 }
