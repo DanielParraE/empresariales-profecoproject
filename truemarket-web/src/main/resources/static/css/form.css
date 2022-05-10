@@ -1,0 +1,38 @@
+.form {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.form-item {
+    margin: 10px;
+}
+
+.form-item label, .form-item input {
+    font-size: 1.2rem;
+}
+
+label {
+    width:200px;
+    display: inline-block;
+}
+
+.button {
+    height: 40px;
+    margin: 45px 0;
+}
+
+.button input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    color: #fff;
+    outline: none;
+}
+
+.btn-update{
+    background: #016400;
+}
+
+.btn-remove{
+    background: #C0563F;
+}

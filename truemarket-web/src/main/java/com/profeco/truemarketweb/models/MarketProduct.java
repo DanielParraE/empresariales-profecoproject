@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,4 +16,5 @@ public class MarketProduct implements Serializable {
     private Market market;
     private float price;
     private Date updatedAt;
+    private List<MarketProductReview> reviews;
 }

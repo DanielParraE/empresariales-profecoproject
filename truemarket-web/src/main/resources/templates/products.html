@@ -45,8 +45,8 @@
                                         <i class="fas fa-dollar-sign"></i>
                                         <h1 th:text="${marketProduct.price}"/>
                                     </div>
-                                    <a href="products/1" class="buy"><i class="fas fa-pen"></i>Edit product</a>
-                                    <a href="/products/1/reviews" class="buy"><i class="fa fa-star"></i>Reviews</a>
+                                    <a th:href="@{${ @environment.getProperty('frontend.url') + '/products/' + product.id}}" class="buy"><i class="fas fa-pen"></i>Edit product</a>
+                                    <a th:href="@{${ @environment.getProperty('frontend.url') + '/products/' + product.id + '/reviews'}}" class="buy"><i class="fa fa-star"></i>Reviews</a>
                                     <a href="products/1" class="buy"><i class="fas fa-flag"></i>Inconsistencies</a>
 
                                 </div>

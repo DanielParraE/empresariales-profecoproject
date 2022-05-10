@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/form.css}"/>
     <title>Product Details</title>
 </head>
 
@@ -11,55 +12,32 @@
 <header th:insert="fragments/header.html :: header"> </header>
 <main class="main">
     <section class="articles">
-        <article>
+        <article class="sellers">
             <div class="card">
-                <div class="title">
-                    <h3>Product Details</h3>
-                </div>
-
-                <div>
-                    <form>
-
-                        <!--Product display image-->
-                        <!--                        <img th:src="@{${'http://localhost:8091/files/' + product.image }}" alt="" class="product-image">-->
-
-                        <div class="form-group">
-                            <label for="name">Product Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name">
+                <div class="info">
+                    <!--                    <form class="form" action="#" th:action="@{'/consumers/edit' }" th:object="${consumer}" method="post" enctype="multipart/form-data">-->
+                    <form class="form" th:object="${product}">
+                        <div class="title">
+                            <h1>Edit product</h1>
                         </div>
 
+                        <div class="form-details">
+                            <div class="form-item">
+                                <label for="name">Product Name: </label>
+                                <input type="text" id="name" required th:field="*{name}" readonly/>
+                            </div>
 
-
-                        <div class="form-group">
-                            <label for="price">Price</label>
-                            <input type="text" class="form-control" id="price" placeholder="Enter price">
+                            <div class="form-item">
+                                <label for="price">New Price: </label>
+                                <input type="text" id="price" th:value="${marketProduct.price}" required>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="category">Category</label>
-                            <select class="form-control" id="category">
-                                <option>Category 1</option>
-                                <option>Category 2</option>
-                                <option>Category 3</option>
-                                <option>Category 4</option>
-                                <option>Category 5</option>
-                            </select>
+                        <div class="button">
+                            <input type="button" class="clickable btn-update" value="Update price" onclick="send()"><br>
+                            <input type="button" class="clickable btn-remove" value="Delete product" onclick="send()">
                         </div>
-
-                        <div class="form-group">
-                            <label for="image">Image</label>
-                            <input type="file" class="form-control-file" id="image">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="3"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="submit" class="btn btn-primary">Delete</button>
                     </form>
-
                 </div>
             </div>
         </article>
