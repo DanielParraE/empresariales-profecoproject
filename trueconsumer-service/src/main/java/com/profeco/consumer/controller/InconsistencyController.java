@@ -40,8 +40,11 @@ public class InconsistencyController {
     private RabbitTemplate template;
 
     @GetMapping
-    public ResponseEntity<List<Inconsistency>> listComplain() {
-        List<Inconsistency> inconsistencies = inconsistencyService.listAllComplain();
+    public ResponseEntity<List<Inconsistency>> listComplain(@RequestParam(required = false) Long marketProduct) {
+        List<Inconsistency> inconsistencies = marketProduct == null?
+                inconsistencyService.listAllComplain():
+                inconsistencyService.getComplainByMarket(marketProduct);
+
         if (inconsistencies.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -53,7 +56,8 @@ public class InconsistencyController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Inconsistency> complainById(@PathVariable(value = "id", required = true) Long id) {
-        List<Inconsistency> inconsistencies = inconsistencyService.listAllComplain();
+
+        List<Inconsistency> inconsistencies = inconsistencyService.getComplainByMarket(id);
         if (inconsistencies.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

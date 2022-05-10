@@ -1,6 +1,7 @@
 package com.profeco.consumer.service.inconsistency;
 
 import com.profeco.consumer.entities.Inconsistency;
+import com.profeco.consumer.entities.MarketProduct;
 import com.profeco.consumer.repositories.InconsistencyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,11 @@ public class DomainInconsistencyService implements InconsistencyService {
     @Override
     public List<Inconsistency> listAllComplain() {
         return inconsistencyRepository.findAll();
+    }
+
+    @Override
+    public List<Inconsistency> getComplainByMarket(Long marketId) {
+        return inconsistencyRepository.findByMarketProduct(MarketProduct.builder().id(marketId).build());
     }
 
     @Override

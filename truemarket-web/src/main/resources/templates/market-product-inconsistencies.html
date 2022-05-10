@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/item.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/reviews.css}"/>
+    <title>Inconsistency list</title>
+</head>
+
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<main>
+
+    <section class="articles">
+        <article class="sellers">
+            <div class="card">
+                <div class="info">
+                    <div class="title">
+                        <h1>Product</h1>
+                    </div>
+                    <div class="item-name">
+                        <a>
+                            <img th:src="@{${ product.image }}" alt="" class="item-image" >
+                            <span th:text="${product.name}"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article>
+            <div class="title">
+                <h1>Inconsistencies</h1>
+            </div>
+            <div class="card" th:each="inconsistency: ${inconsistencies}">
+                <div class="info">
+                    <div class="description">
+                        <p class="text" th:text="${'Real price: ' + inconsistency.realPrice}" />
+                        <p class="text" th:text="${'Published price: ' + inconsistency.publishedPrice}" />
+                        <p class="text" th:text="${'Description: ' + inconsistency.description}" />
+                        <p class="text" th:text="${'Purchased At: ' + inconsistency.purchasedAt}" />
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+</body>
+
+</html>
