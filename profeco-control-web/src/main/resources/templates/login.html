@@ -5,6 +5,8 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{/css/login.css}"/>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/google.css}"/>
     <title>Sign up</title>
 </head>
 
@@ -38,11 +40,16 @@
                             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                         </div>
                         <input class="btn-signin" type="submit" value="Sign in" />
-                    </form>
 
-                    <div class="google">
-                        <a class="btn-google" th:href="@{/oauth2/authorization/google}">Continue with Google</a>
-                    </div>
+                        <a th:href="@{/oauth2/authorization/google}">
+                            <div class="google-btn">
+                                <div class="google-icon-wrapper">
+                                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                                </div>
+                                <p class="btn-text"><b>Sign in with google</b></p>
+                            </div>
+                        </a>
+                    </form>
 
                 </div>
             </div>

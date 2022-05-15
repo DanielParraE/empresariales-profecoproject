@@ -5,6 +5,8 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" th:href="@{/css/base.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{/css/signup.css}"/>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/google.css}"/>
     <title>Sign up</title>
 </head>
 
@@ -57,9 +59,14 @@
                             <input type="submit" class="clickable" value="Create account">
                         </div>
 
-                        <div class="google">
-                            <a class="btn-google clickable" th:href="@{/oauth2/authorization/google}">Continue with Google</a>
-                        </div>
+                        <a th:href="@{/oauth2/authorization/google}">
+                            <div class="google-btn">
+                                <div class="google-icon-wrapper">
+                                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                                </div>
+                                <p class="btn-text"><b>Sign in with google</b></p>
+                            </div>
+                        </a>
                     </form>
                 </div>
             </div>
